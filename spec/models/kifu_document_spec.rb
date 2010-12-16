@@ -1,5 +1,12 @@
+# -*- coding: utf-8 -*-
 require 'spec_helper'
 
-describe KifuDocument do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe KifuDocument, "棋譜が指定されていない場合:" do
+  before(:each) do
+    @kifudoc = KifuDocument.new
+  end
+
+  it "バリデーションに失敗すること" do
+    @kifudoc.should_not be_valid
+  end
 end

@@ -55,16 +55,16 @@ body {
 }
 
 #header {
-  height: 200px;
+  height: 100px;
   margin-bottom: 20px;
-  background: url(img/bg-header.jpg) no-repeat 0 0;
+  /* background: url(img/bg-header.jpg) no-repeat 0 0; */
 }
 
 #header-inner {
   width: 850px;
   height: 100%;
   position: relative;
-  background: url(img/bg-header-inner.jpg) no-repeat 100% 10px;
+  /*  background: url(images/bg-header-inner.jpg) no-repeat 100% 10px; */
 }
 
 #container {
@@ -153,7 +153,8 @@ h3,h4,h5,h6 { margin-top: 3em; }
    [4] サイドバーブロック内に関する指定 */
 
 /* -- サイドバータイトル -- */
-.side-title { color: #eee;}
+/* .side-title { color: #eee;} */
+.side-title { color: #A0A0A0; }
 
 /* -- リスト/サイドバーメニュー -- */
 .localnavi {

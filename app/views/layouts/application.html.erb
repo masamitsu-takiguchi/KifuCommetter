@@ -4,7 +4,9 @@
 <meta http-equiv="Content-Style-Type" content="text/css" />
 <meta http-equiv="Content-Script-Type" content="text/javascript" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>KifuCometter</title>
+<title>
+  棋譜こめったー<%= ": #{@page_title}" if @page_title %>
+</title>
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <%= stylesheet_link_tag :all %>
@@ -17,25 +19,17 @@
 <div id="header">
 <div id="header-inner">
 <!-- キーワード -->
-<h1>*** キーワード ***</h1>
+<h1>他人の棋譜にいちゃもんつける</h1>
 <!-- ページの概要 -->
-<p class="description">*** ページの概要 ***</p>
+<p class="description">棋譜を投稿するのはもちろん、棋譜にどんどんコメントを追加したりできます</p>
 <!-- 企業名｜ショップ名｜タイトル -->
-<p class="logo"><a href="index.html">*** 企業名｜ショップ名｜タイトル ***</a></p>
+<p class="logo"><%= link_to "棋譜こめったー Ver0.0.1", kifu_documents_path %></a></p>
 </div></div>
 <!-- // header end -->
 
 <div id="container">
 <div id="contents">
 <!-- コンテンツここから -->
-
-<h2>*** 見出し ***</h2>
-<p>テキスト</p>
-<p>テキスト</p>
-
-<h3>*** 見出し ***</h3>
-<p>テキスト</p>
-<p>テキスト</p>
 
 <%= yield %>
 
@@ -70,11 +64,14 @@
 <div id="right-sidebar">
 <!-- 右サイドバーここから -->
 
-<p class="side-title">*** タイトル ***</p>
-<p>テキスト</p>
-<p>テキスト</p>
-<p>テキスト</p>
-<p>テキスト</p>
+<p class="side-title">最新の投稿</p>
+<% if @kifudocs.blank? -%>
+<p>まだありません。</p>
+<% else -%>
+<% @kifudocs.each do |kifudoc| -%>
+  <p><%= kifudoc.title %> - <%= kifudoc.uploaded_by %> (<%= distance_of_time_in_words Time.now, kifudoc.updated_at %>前)</p>
+<% end -%>
+<% end -%>
 
 <!-- 右サイドバーここまで -->
 </div>
@@ -83,7 +80,7 @@
 <p id="cds">Designed by <a href="http://www.css-designsample.com/">CSS.Design Sample</a></p>
 <div id="footer">
 <!-- コピーライト / 著作権表示 -->
-<p>Copyright &copy; *** 企業名｜ショップ名｜タイトルなど ***. All Rights Reserved.</p>
+<p>Copyright &copy; <a href="mailto:sandmark.M@gmail.com" style="color:#f0f0f0">棋譜こめったーの人</a>, All Rights Reserved.</p>
 </div>
 </div>
 </body>

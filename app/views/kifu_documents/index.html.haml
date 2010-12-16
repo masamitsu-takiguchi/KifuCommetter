@@ -1,27 +1,29 @@
-%h1 Listing kifu_documents
+%h2 投稿棋譜リスト
+
+%p= link_to '投稿する！', new_kifu_document_path
+
+%br
 
 %table
   %tr
-    %th Kifu documents
-    %th Title
-    %th Kifu
-    %th Uploaded by
-    %th Categories
+    %th 投稿日時
+    %th タイトル
+    %th 戦型情報
+    %th マージされた回数
+    %th 投稿者
     %th
     %th
     %th
 
   - @kifu_documents.each do |kifu_document|
     %tr
-      %td= kifu_document.kifu_documents
+      %td= distance_of_time_in_words(Time.now, kifu_document.updated_at) + "前"
       %td= kifu_document.title
-      %td= kifu_document.kifu
-      %td= kifu_document.uploaded_by
       %td= kifu_document.categories
-      %td= link_to 'Show', kifu_document
-      %td= link_to 'Edit', edit_kifu_document_path(kifu_document)
-      %td= link_to 'Destroy', kifu_document, :confirm => 'Are you sure?', :method => :delete
+      %td
+      %td= kifu_document.uploaded_by
+      %td= link_to '見る', kifu_document
+      %td= link_to '編集', edit_kifu_document_path(kifu_document)
+      %td= link_to '破棄', kifu_document, :confirm => '本当に破棄しますか？', :method => :delete
 
 %br
-
-= link_to 'New Kifu document', new_kifu_document_path

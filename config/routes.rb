@@ -1,4 +1,6 @@
 KifuCommetter::Application.routes.draw do
+  get  'kifu_documents/newp' => 'kifu_documents#new_with_plain_kifu', :as => :newp_kifu_document
+  post 'kifu_documents/newp' => 'kifu_documents#new_with_plain_kifu', :as => :newp_kifu_document
   resources :kifu_documents
 
   # The priority is based upon order of creation:

@@ -1,5 +1,10 @@
+%h2 棋譜の新規投稿
+
+%p= link_to "棋譜アップロード用フォームへ", new_kifu_document_path
+%br
+
 %center
-  = form_for @kifu_document, :html => {:multipart => true} do |f|
+  = form_for @kifu_document, :url => {:action => :new_with_plain_kifu} do |f|
     -if @kifu_document.errors.any?
       #error_explanation
         %h3 エラーが検出されました:
@@ -15,8 +20,14 @@
         %td.form= f.label :uploaded_by
         %td.form= f.text_field :uploaded_by
       %tr
-        %td.form= f.label :kifu_file
-        %td.form= f.file_field :kifu_file
+        %td{"colspan" => "2"}
+          %br
+          %hr
+          %br
+      %tr
+        %td.form_center{"colspan" => "2"}= f.label(:kifu) + "をここに貼り付けてください"
+      %tr
+        %td.form{"colspan" => "2"}= f.text_area :kifu, :rows => 10
       %tr
         %td{"colspan" => "2"}
           %br
@@ -28,3 +39,5 @@
         %td.form{"colspan" => "2"}= f.text_area :note, :rows => 10
       %tr
         %td.form{"colspan" => "2"}= f.submit
+
+= link_to 'モドル', kifu_documents_path

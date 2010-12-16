@@ -156,8 +156,8 @@ ja:
       invalid: "は不正な値です。"
       confirmation: "が一致しません。"
       accepted: "を受諾してください。"
-      empty: "を入力してください。"
-      blank: "を入力してください。"
+      empty: "を指定してください。"
+      blank: "を指定してください。"
       too_long: "は%{count}文字以内で入力してください。"
       too_short: "は%{count}文字以上で入力してください。"
       wrong_length: "は%{count}文字で入力してください。"
@@ -172,6 +172,15 @@ ja:
       even: "は偶数にしてください。"
 
   activerecord:
+    models:
+      kifu_document:
+    attributes:
+      kifu_document:
+        kifu: "棋譜"
+        title: "タイトル"
+        uploaded_by: "投稿者"
+        note: "ひとこと"
+        kifu_file: "棋譜ファイル"
     errors:
       template:
         header:
