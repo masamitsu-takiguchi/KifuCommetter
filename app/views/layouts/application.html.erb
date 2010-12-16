@@ -1,14 +1,90 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
 <head>
-  <title>KifuCommetter</title>
-  <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :defaults %>
-  <%= csrf_meta_tag %>
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>KifuCometter</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<%= stylesheet_link_tag :all %>
+<%= javascript_include_tag :defaults %>
+<%= csrf_meta_tag %>
+<!-- base layout css.design sample -->
 </head>
 <body>
+<div id="wrapper">
+<div id="header">
+<div id="header-inner">
+<!-- キーワード -->
+<h1>*** キーワード ***</h1>
+<!-- ページの概要 -->
+<p class="description">*** ページの概要 ***</p>
+<!-- 企業名｜ショップ名｜タイトル -->
+<p class="logo"><a href="index.html">*** 企業名｜ショップ名｜タイトル ***</a></p>
+</div></div>
+<!-- // header end -->
+
+<div id="container">
+<div id="contents">
+<!-- コンテンツここから -->
+
+<h2>*** 見出し ***</h2>
+<p>テキスト</p>
+<p>テキスト</p>
+
+<h3>*** 見出し ***</h3>
+<p>テキスト</p>
+<p>テキスト</p>
 
 <%= yield %>
 
+<!-- コンテンツここまで -->
+</div><!-- // contents end -->
+
+<div id="left-sidebar">
+<!-- 左サイドバーここから -->
+
+<p class="side-title">*** タイトル ***</p>
+<ul class="localnavi">
+<li><a href="#">*** リンク ***</a></li>
+<li><a href="#">*** リンク ***</a></li>
+<li><a href="#">*** リンク ***</a></li>
+<li><a href="#">*** リンク ***</a></li>
+<li><a href="#">*** リンク ***</a></li>
+</ul>
+<p class="side-title">*** タイトル ***</p>
+<ul class="localnavi">
+<li><a href="#">*** リンク ***</a></li>
+<li><a href="#">*** リンク ***</a></li>
+<li><a href="#">*** リンク ***</a></li>
+<li><a href="#">*** リンク ***</a></li>
+<li><a href="#">*** リンク ***</a></li>
+</ul>
+
+<!-- 左サイドバーここまで -->
+</div>
+<!-- // left-sidebar end -->
+</div>
+
+<div id="right-sidebar">
+<!-- 右サイドバーここから -->
+
+<p class="side-title">*** タイトル ***</p>
+<p>テキスト</p>
+<p>テキスト</p>
+<p>テキスト</p>
+<p>テキスト</p>
+
+<!-- 右サイドバーここまで -->
+</div>
+<!-- // right-sidebar end -->
+<!-- CSSデザインサンプル著作権表示 削除不可-->
+<p id="cds">Designed by <a href="http://www.css-designsample.com/">CSS.Design Sample</a></p>
+<div id="footer">
+<!-- コピーライト / 著作権表示 -->
+<p>Copyright &copy; *** 企業名｜ショップ名｜タイトルなど ***. All Rights Reserved.</p>
+</div>
+</div>
 </body>
 </html>
