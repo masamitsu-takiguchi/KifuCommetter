@@ -12,6 +12,7 @@ gem 'rails3-generators'
 gem 'carrierwave'
 gem 'meta_where'
 gem 'steak'
+gem 'haml-rails'
 
 # Use unicorn as the web server
 # gem 'unicorn'
