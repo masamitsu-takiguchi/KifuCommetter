@@ -1,0 +1,9 @@
+@charset "utf8";
+
+/* --------------------------------------------------
+ * いろいろ改造
+ */
+
+.form input textarea { border: 1px solid; }
+td.form { text-align: right; }
+td.form_center { text-align: center; }
