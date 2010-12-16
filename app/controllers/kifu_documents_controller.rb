@@ -11,7 +11,7 @@ class KifuDocumentsController < ApplicationController
       @kifu_document = KifuDocument.new params[:kifu_document]
       if @kifu_document.save
         respond_with @kifu_document do |format|
-          format.html { redirect_to kifu_documents_url, :notice => "棋譜【#{@kifu_document.title}】のアップロードに成功しました！" }
+          format.html { redirect_to @kifu_document, :notice => "棋譜【#{@kifu_document.title}】のアップロードに成功しました！" }
         end
       else
         render :new_with_plain_kifu
@@ -64,7 +64,7 @@ class KifuDocumentsController < ApplicationController
 
     respond_to do |format|
       if @kifu_document.save
-        format.html { redirect_to(@kifu_document, :notice => 'Kifu document was successfully created.') }
+        format.html { redirect_to(@kifu_document, :notice => "棋譜【#{@kifu_document.title}】のアップロードに成功しました！") }
         format.xml  { render :xml => @kifu_document, :status => :created, :location => @kifu_document }
       else
         format.html { render :action => "new" }

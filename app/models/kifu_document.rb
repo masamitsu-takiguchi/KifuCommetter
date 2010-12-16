@@ -26,6 +26,7 @@ class KifuDocument < ActiveRecord::Base
 
   def before_save
     self.title = self.kifu_original_filename if title.blank?
+    self.uploaded_by = "名無しさん" if self.uploaded_by.blank?
     self.kifu = NKF.nkf("-w", self.kifu)
   end
 end
