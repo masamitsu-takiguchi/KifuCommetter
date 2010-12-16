@@ -1,0 +1,27 @@
+%h1 Listing kifu_documents
+
+%table
+  %tr
+    %th Kifu documents
+    %th Title
+    %th Kifu
+    %th Uploaded by
+    %th Categories
+    %th
+    %th
+    %th
+
+  - @kifu_documents.each do |kifu_document|
+    %tr
+      %td= kifu_document.kifu_documents
+      %td= kifu_document.title
+      %td= kifu_document.kifu
+      %td= kifu_document.uploaded_by
+      %td= kifu_document.categories
+      %td= link_to 'Show', kifu_document
+      %td= link_to 'Edit', edit_kifu_document_path(kifu_document)
+      %td= link_to 'Destroy', kifu_document, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Kifu document', new_kifu_document_path

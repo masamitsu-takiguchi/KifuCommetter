@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Kifu documents:
+  = @kifu_document.kifu_documents
+%p
+  %b Title:
+  = @kifu_document.title
+%p
+  %b Kifu:
+  = @kifu_document.kifu
+%p
+  %b Uploaded by:
+  = @kifu_document.uploaded_by
+%p
+  %b Categories:
+  = @kifu_document.categories
+
+= link_to 'Edit', edit_kifu_document_path(@kifu_document)
+\|
+= link_to 'Back', kifu_documents_path

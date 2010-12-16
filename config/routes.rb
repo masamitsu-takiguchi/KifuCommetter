@@ -1,4 +1,6 @@
 KifuCommetter::Application.routes.draw do
+  resources :kifu_documents
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
