@@ -1,4 +1,6 @@
 KifuCommetter::Application.routes.draw do
+  get 'kifu_documents/:id/editu' => 'kifu_documents#edit_with_upload', :as => :editu_kifu_document
+  put 'kifu_documents/:id/editu' => 'kifu_documents#edit_with_upload', :as => :editu_kifu_document
   get 'kifu_documents/:id.kif' => 'kifu_documents#kif', :as => :kifu_document_kif
   get 'kifu_documents/:id.kifu' => 'kifu_documents#kifu', :as => :kifu_document_kifu
   get  'kifu_documents/newp' => 'kifu_documents#new_with_plain_kifu', :as => :newp_kifu_document

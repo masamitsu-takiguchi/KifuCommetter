@@ -1,0 +1,11 @@
+%h2 棋譜情報の編集
+
+%p= link_to "棋譜ペースト型フォームへ", edit_kifu_document_path(@kifu_document.id)
+%br
+
+%center
+  = render 'form'
+
+= link_to 'Show', @kifu_document
+\|
+= link_to 'Back', kifu_documents_path

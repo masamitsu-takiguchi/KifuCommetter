@@ -5,17 +5,38 @@ class KifuDocumentsController < ApplicationController
   # GET /kifu_document/newp
   def new_with_plain_kifu
     @page_title = "新規投稿"
+    @action = newp_kifu_document_url
     if request.get?
       @kifu_document = KifuDocument.new
       respond_with @kifu_document
     else
       @kifu_document = KifuDocument.new params[:kifu_document]
+      @kifu_document.upload = false
       if @kifu_document.save
         respond_with @kifu_document do |format|
-          format.html { redirect_to @kifu_document, :notice => "棋譜【#{@kifu_document.title}】のアップロードに成功しました！" }
+          format.html { redirect_to @kifu_document, :notice => "棋譜【#{@kifu_document.title}】を投稿しました！"
         end
       else
         render :new_with_plain_kifu
+      end
+    end
+  end
+
+  # GET /kifudocuments/1/editu
+  def edit_with_upload
+    @page_title = "棋譜情報の編集"
+    @action = editu_kifu_document_url
+    if request.get?
+      @kifu_document = KifuDocument.find params[:id]
+      respond_with @kifu_document
+    else
+      @kifu_document = KifuDocument.find params[:id]
+      if @kifu_document.update_attributes params[:kifu_document]
+        respond_with @kifu_document do |format|
+          format.html { redirect_to @kifu_document, :notice => "棋譜【#{@kifu_document.title}】を更新しました！" }
+        end
+      else
+        render :edit_with_upload
       end
     end
   end

@@ -1,6 +1,10 @@
-%h2 Editing kifu_document
+%h2 棋譜情報の編集
 
-= render 'form'
+%p= link_to "棋譜アップロード型フォームへ", editu_kifu_document_path(@kifu_document)
+%br
+
+%center
+  = render 'paste_form'
 
 = link_to 'Show', @kifu_document
 \|
