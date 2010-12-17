@@ -39,17 +39,16 @@
 <div id="left-sidebar">
 <!-- 左サイドバーここから -->
 
-<p class="side-title">*** タイトル ***</p>
+<p class="side-title">読んでね</p>
 <ul class="localnavi">
-<li><a href="#">*** リンク ***</a></li>
-<li><a href="#">*** リンク ***</a></li>
-<li><a href="#">*** リンク ***</a></li>
-<li><a href="#">*** リンク ***</a></li>
-<li><a href="#">*** リンク ***</a></li>
+<li><%= link_to "はじめに", documents_readme_path %></li>
+<li><%= link_to "利用規約・謝辞", documents_policies_and_thanks_path %></li>
+<li><%= link_to "使い方", documents_getting_started_path %></li>
+<li><%= link_to "要望・バグ報告", documents_bug_report_path %></li>
 </ul>
-<p class="side-title">*** タイトル ***</p>
+<p class="side-title">各種ショートカット</p>
 <ul class="localnavi">
-<li><a href="#">*** リンク ***</a></li>
+<li><%= link_to "ホーム", root_path %></li>
 <li><a href="#">*** リンク ***</a></li>
 <li><a href="#">*** リンク ***</a></li>
 <li><a href="#">*** リンク ***</a></li>

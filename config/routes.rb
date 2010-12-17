@@ -1,4 +1,10 @@
 KifuCommetter::Application.routes.draw do
+  get 'documents' => 'documents#readme', :as => :documents
+  get 'documents/ReadMe.html' => 'documents#readme', :as => :documents_readme
+  get 'documents/PoliciesAndThanks.html' => 'documents#policies_and_thanks', :as => :documents_policies_and_thanks
+  get 'documents/GettingStarted.html' => 'documents#getting_started', :as => :documents_getting_started
+  get 'documents/BugReport.html' => 'documents#bug_report', :as => :documents_bug_report
+
   get 'kifu_documents/:id/merge' => 'kifu_documents#merge', :as => :merge_kifu_document
   get 'kifu_documents/download/:id.kif' => 'kifu_documents#send_kifu', :as => :download_kifu_document
   get 'kifu_documents/download/:id.orig.kif' => 'kifu_documents#send_original_kifu', :as => :download_original_kifu_document
