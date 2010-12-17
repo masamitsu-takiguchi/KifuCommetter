@@ -99,6 +99,7 @@ class KifuDocumentsController < ApplicationController
   # GET /kifu_documents/1.xml
   def show
     @kifu_document = KifuDocument.find(params[:id])
+    @form = Form.new
 
     respond_to do |format|
       format.html # show.html.erb

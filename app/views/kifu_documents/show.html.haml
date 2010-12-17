@@ -17,6 +17,11 @@
   戦型:
   - @kifu_document.forms.each do |form|
     = "【" + link_to(form.name, form_path(form)) + "】"
+  %br
+  = form_for(@form) do |f|
+    = f.label :name
+    = f.text_field :name
+    = f.submit "追加"
 
 %center
   %hr
