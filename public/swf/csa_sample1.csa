@@ -1,0 +1,316 @@
+' ------ CSA Œ`Ž®Šû•ˆƒtƒ@ƒCƒ‹
+' ----------- created by ŒƒŽw
+$EVENT:ŒƒŽwí
+$SITE:Ž©‘î
+$START_TIME:2002/01/01 19:00:00
+$END_TIME:2002/01/01 20:30:00
+$TIME_LIMIT:00:45+30
+$OPENING:ŽOŠÔ”òŽÔ
+N+‚ ‚È‚½
+N-ŒƒŽw`‘SíŒ^@Žl’i
+P1-KY-KE-GI-KI-OU-KI-GI-KE-KY
+P2 * -HI *  *  *  *  * -KA * 
+P3-FU-FU-FU-FU-FU-FU-FU-FU-FU
+P4 *  *  *  *  *  *  *  *  * 
+P5 *  *  *  *  *  *  *  *  * 
+P6 *  *  *  *  *  *  *  *  * 
+P7+FU+FU+FU+FU+FU+FU+FU+FU+FU
+P8 * +KA *  *  *  *  * +HI * 
+P9+KY+KE+GI+KI+OU+KI+GI+KE+KY
++
+'ŽQlŠû•ˆFVSŒƒŽw‚R@Žl’iBƒRƒƒ“ƒg‚É•\Ž¦‚³‚ê‚Ä‚¢‚é‚Ì‚ÍAŒƒŽw‚Ì“Ç‚Ý‹Ø‚Å‚·B
++7776FU
+T1
+-3334FU
+T1
+'<fight>0 ’èÕŽè</fight>
++6766FU
+T1
+-8384FU
+T1
+'<fight>0 ’èÕŽè</fight>
++8877KA
+T1
+-7162GI
+T1
+'<fight>0 ’èÕŽè</fight>
++2878HI
+T1
+-8485FU
+T1
+'<fight>0 ’èÕŽè</fight>
++7968GI
+T1
+-5142OU
+T1
+'<fight>0 ’èÕŽè</fight>
++5948OU
+T1
+-4232OU
+T1
+'<fight>0 ’èÕŽè</fight>
++3938GI
+T2
+-2233KA
+T1
+'<fight>0 ’èÕŽè</fight>
++1716FU
+T1
+-3222OU
+T1
+'<fight>0 ’èÕŽè</fight>
++4839OU
+T1
+-1112KY
+T1
+'<fight>0 ’èÕŽè</fight>
++6958KI
+T1
+-2211OU
+T1
+'<fight>0 ’èÕŽè</fight>
++5756FU
+T1
+-1314FU
+T1
+'<fight>56 £‚Q”ª‹Ê ¢‚Q“ñ‹â £‚VŒÜ•à ¢‚V“ñ‹à £ƒpƒX ¢‚SŽlŠp £‚TŽµ‹â ¢‚Rˆê‹à £ƒpƒX ¢ƒpƒX</fight>
++4746FU
+T1
+-3122GI
+T1
+'<fight>52 £‚Q”ª‹Ê ¢‚Tˆê‹à‰E £‚SŽµ‹à ¢‚Rˆê‹à £‚TŽµ‹â ¢‚Sˆê‹à‰E £‚R˜Z•à ¢ƒpƒX £ƒpƒX</fight>
++3736FU
+T1
+-6152KI
+T2
+'<fight>50 £‚Q”ª‹Ê ¢‚Rˆê‹à £‚SŽµ‹à ¢‚TŽl•à £‚TŽµ‹â ¢‚TŽO‹â £‚VŒÜ•à ¢ƒpƒX</fight>
++6857GI
+T1
+-4131KI
+T1
+'<fight>38 £‚Q”ª‹Ê ¢‚S“ñ‹àŠñ £‚SŽµ‹à ¢‚R“ñ‹àŠñ £‚VŒÜ•à ¢‚SŽl•à £‚U”ª”ò ¢ƒpƒX £ƒpƒX</fight>
++5847KI
+T1
+-5242KI
+T1
+'<fight>38 £‚Q”ª‹Ê ¢‚R“ñ‹àŠñ £‚VŒÜ•à ¢‚SŽl•à £‚U”ª”ò ¢‚V“ñ”ò £‚UŒÜ•à ¢ƒpƒX £ƒpƒX</fight>
++4645FU
+T5
+-5354FU
+T1
+'<fight>25 £‚Q”ª‹Ê ¢‚TŽO‹â £‚T”ª”ò ¢‚SŽl•à £“¯@•à ¢“¯@‹â £‚S˜Z‹â ¢ƒpƒX £ƒpƒX</fight>
++5746GI
+T1
+-4232KI
+T1
+'<fight>24 £‚Q”ª‹Ê ¢‚TŽO‹â £‚T”ª”ò ¢‚T“ñ”ò £ƒpƒX ¢‚VŽl•à £ƒpƒX ¢ƒpƒX</fight>
++3635FU
+T1
+-3435FU
+T1
+'<fight>2 £“¯@‹â ¢‚TŽO‹â £‚Q”ª‹Ê ¢‚T“ñ”ò £‚RŽl‹â ¢‚QŽlŠp £‚VŒÜ•à ¢ƒpƒX £ƒpƒX</fight>
++4635GI
+T1
+-3342KA
+T1
+'<fight>-5 £‚W”ª”ò ¢‚VŽl•à £‚Q”ª‹Ê ¢‚VŒÜ•à £“¯@•à ¢‚UŽlŠp £‚RŽµ‹à ¢‚VŒÜŠp £ƒpƒX ¢ƒpƒX</fight>
++7888HI
+T5
+-7374FU
+T1
+'<fight>-10 £‚Q”ª‹Ê ¢‚VŒÜ•à £“¯@•à ¢“¯@Šp £‚UŒÜ•à ¢‚VŽOŒj £‚U”ª”ò ¢‚W˜Z•à £“¯@•à ¢“¯@Šp £ƒpƒX ¢ƒpƒX</fight>
++2937KE
+T6
+-7475FU
+T1
+'<fight>-179 £“¯@•à ¢“¯@Šp £‚V˜Z•à ¢‚TŽOŠp £‚U”ªŠp ¢‚V“ñ”ò £‚V”ª”ò ¢ƒpƒX £ƒpƒX</fight>
++7675FU
+T1
+-0076FU
+T1
+'<fight>-192 £‚U”ªŠp ¢‚VŒÜŠp £‚TŽµ‹à ¢‚R˜Z•à £‚QŒÜŒj ¢‚UŽlŠp £‚S˜Z‹à ¢ƒpƒX £ƒpƒX</fight>
++7768KA
+T3
+-4275KA
+T1
+'<fight>-108 £‚TŽµ‹à ¢‚R˜Z•à £‚QŒÜŒj ¢‚V“ñ”ò £‚Q‹ã‹Ê ¢‚TŽO‹â £‚RŽl•à ¢ƒpƒX £ƒpƒX</fight>
++6857KA
+T1
+-7677TO
+T1
+'<fight>-427 £“¯@Œj ¢‚V˜Z•à £‚V”ª”ò ¢‚VŽµ•à¬ £“¯@”ò ¢‚S“ñŠp £‚Q”ª‹Ê ¢‚W˜Z•à £“¯@•à ¢“¯@Šp £‚V”ª”ò</fight>
++8977KE
+T4
+-0076FU
+T1
+'<fight>-431 £‚V”ª”ò ¢‚VŽµ•à¬ £“¯@”ò ¢‚S“ñŠp £‚Q”ª‹Ê ¢‚W˜Z•à £“¯@•à ¢‚VŽOŒj £‚VŽl•à ¢‚W˜ZŠp £‚WŽµ”ò</fight>
++8878HI
+T3
+-7677TO
+T1
+'<fight>-439 £“¯@”ò ¢‚TŽOŠp £‚Q”ª‹Ê ¢‚W˜Z•à £“¯@•à ¢“¯@Šp £‚V‹ã”ò</fight>
++7877HI
+T1
+-7553KA
+T1
+'<fight>-426 £‚Q”ª‹Ê ¢‚W˜Z•à £“¯@•à ¢“¯@”ò £‚WŽµ•à ¢‚W“ñ”ò £‚S˜ZŠp ¢‚UŽl•à £ƒpƒX ¢ƒpƒX</fight>
++2726FU
+T5
+-8586FU
+T1
+'<fight>-472 £‚Q”ª‹Ê ¢‚WŽµ•à¬ £‚WŽO•à ¢‚VŽµ‚Æ £‚W“ñ•à¬ ¢‚W‹ã”ò £‚V“ñ‚Æ ¢‚UŽµ‚Æ £‚S˜ZŠp ¢‚X‹ã”ò¬ £‚U“ñ‚Æ ¢‚XŽµŠp¬</fight>
++8786FU
+T2
+-8286HI
+T1
+'<fight>-687 £‚V“ñ”ò¬ ¢‚W‹ã”ò¬ £‚RŽO•à ¢“¯@‹à £‚RŽl•à ¢‚R“ñ‹àˆø £‚Q”ª‹Ê ¢‚VŽO•à £ƒpƒX ¢‚X‹ã—´ £‚Wˆê—´</fight>
++0087FU
+T1
+-0076FU
+T1
+'<fight>-678 £‚W˜Z•à ¢‚VŽµ•à¬ £‚Q”ª‹Ê ¢‚W‹ã”ò £‚RŽO•à ¢‚S“ñ‹àŠñ £‚S˜ZŠp ¢‚X‹ã”ò¬ £‚QŒÜŒj ¢‚UŽlŠp £“¯@Šp</fight>
++8786FU
+T9
+-7677TO
+T1
+'<fight>-576 £‚Q”ª‹Ê ¢‚W‹ã”ò £‚WŽO”ò ¢‚VŽOŒj £‚S˜ZŠp ¢‚X‹ã”ò¬ £‚VŽl•à ¢‚WŒÜŒj £“¯”ò¬ ¢‚UŽlŠp £‚X˜Z•à</fight>
++2625FU
+T5
+-7767TO
+T9
+'<fight>-874 £‚S˜ZŠp ¢‚U‹ã”ò £‚Q”ª‹Ê ¢‚X‹ã”ò¬ £‚Uˆê”ò ¢‚T”ª‚Æ £“¯@‹à ¢‚Vˆê £‚XˆêŠp¬ ¢‚RŒÜŠp £‚Wˆê”n</fight>
++5746KA
+T6
+-6766TO
+T1
+'<fight>-943 £‚SŽl•à ¢‚R˜Z•à £‚XˆêŠp¬ ¢‚RŽµ•à¬ £“¯@‹à ¢‚TŽµŒj £‚S”ª‹à ¢‚T˜Z‚Æ £‚Wˆê”n ¢‚SŽl•à £‚WŒÜ•à</fight>
++0061HI
+T14
+-0057KE
+T4
+'<fight>-1338 £‚RŽO•à ¢“¯@Œj £‚Wˆê”ò¬ ¢‚S‹ãŒj¬ £“¯@‹â ¢‚T‹ã”ò £‚RŽl•à ¢‚T˜Z‚Æ £‚RŽO•à¬ ¢“¯@‹à £‚XˆêŠp¬ ¢‚SŽµ‚Æ</fight>
++4948KI
+T3
+-0079HI
+T3
+'<fight>-1107 £‚Q”ª‹Ê ¢‚V“ñ”ò¬ £‚Rˆê”ò¬ ¢“¯@‹à £‚SŽl•à ¢‚R˜Z•à £“¯@‹à ¢‚T˜Z‚Æ £‚XˆêŠp¬ ¢‚SŽl•à £‚WŒÜ•à ¢ƒpƒX</fight>
++3928OU
+T23
+-7972RY
+T1
+'<fight>-1017 £‚Rˆê”ò¬ ¢“¯@‹à £‚QŽl•à ¢‚T˜Z‚Æ £“¯@‹à ¢‚R˜Z•à £‚QŽO•à¬ ¢“¯@‹â £‚QŽl•à ¢‚R“ñ‹â £‚XˆêŠp¬ ¢‚RŽµ•à¬ £“¯@‹â</fight>
++6131RY
+T8
+-3231KI
+T1
+'<fight>-1137 £‚SŽl•à ¢‚R˜Z•à £“¯@‹à ¢‚SŽl•à £‚R“ñ•à ¢“¯@‹à £‚XˆêŠp¬ ¢‚T˜Z‚Æ £‚WŒÜ•à ¢ƒpƒX £ƒpƒX</fight>
++2524FU
+T1
+-6656TO
+T4
+'<fight>-1055 £“¯@‹à ¢‚R˜Z•à £‚QŽO•à¬ ¢‚RŽµ•à¬ £“¯@‹à ¢‚QŒÜ”ò £‚Q˜Z‹â ¢‚QŽO”ò £‚QŽl•à ¢‚RŽO”ò £‚XˆêŠp¬ ¢‚W˜ZŠp</fight>
++4756KI
+T6
+-0036FU
+T1
+'<fight>-911 £‚QŽO•à¬ ¢“¯@‹â £‚TŽµ‹àˆø ¢‚RŽµ•à¬ £“¯@‹à ¢‚VŽOŒj £‚QŽl•à ¢‚QŽµ•à £“¯@‹à ¢‚R“ñ‹â £ƒpƒX</fight>
++5657KI
+T5
+-2324FU
+T9
+'<fight>-803 £‚QŽO•à ¢“¯@‹â £‚SŽl•à ¢“¯@•à £‚XˆêŠp¬ ¢‚RŽµ•à¬ £“¯@‹à ¢‚SŒÜŒj £‚S˜Z‹â ¢‚RŽµŒj¬ £“¯‹âˆø ¢‚W˜ZŠp</fight>
++0034KI
+T21
+-3637TO
+T8
+'<fight>-914 £“¯@‹à ¢‚QŒÜŒj £‚QŽO•à ¢‚PŽO‹â £‚SŽl•à ¢‚RŽO•à £‚SŽO‹à ¢‚RŽµŒj¬ £“¯@‹â ¢‚UŽlŠp £‚QŽl‹â ¢‚W˜ZŠp</fight>
++3837GI
+T4
+-7279RY
+T8
+'<fight>-1222 £‚R‹ã•à ¢‚X‹ã—´ £‚QŽO•à ¢‚QŒÜ £‚R”ª‹Ê ¢‚RŽO‹â £‚XˆêŠp¬ ¢‚VŽOŒj £‚RŽO‹à ¢“¯@Œj £‚RŽl‹â ¢‚W˜ZŠp</fight>
++0039FU
+T4
+-3132KI
+T9
+'<fight>-1143 £‚SŽl•à ¢“¯@•à £‚QŽO•à ¢“¯@‹â £“¯@‹à ¢“¯@‹à £‚XˆêŠp¬ ¢‚SŒÜŒj £‚Wˆê”n ¢‚X‹ã—´ £‚S‹ãŒj</fight>
++0023FU
+T10
+-3223KI
+T6
+'<fight>-1300 £“¯@‹à ¢“¯@‹â £‚SŽl•à ¢‚QŒÜŒj £‚SŽO•à¬ ¢‚SŒÜ•à £‚TŽO‚Æ ¢‚S˜Z•à £‚U“ñ‚Æ ¢‚X‹ã—´ £‚S˜Z‹âˆø ¢‚XŽµ—´</fight>
++3423KI
+T9
+-2223GI
+T1
+'<fight>-1081 £‚SŽl•à ¢‚QŒÜŒj £‚SŽO•à¬ ¢‚SŒÜ•à £‚TŽO‚Æ ¢‚S˜Z•à £‚U“ñ‚Æ ¢ƒpƒX £‚S˜Z‹âˆø ¢‚X‹ã—´ £ƒpƒX</fight>
++0034KI
+T5
+-2334GI
+T7
+'<fight>-1406 £“¯@‹â ¢‚R˜Z•à £“¯@‹â ¢‚T‹ã”ò £‚S‹ãŒj ¢‚W”ª—´ £‚T”ª•à ¢‚RˆêŒj £‚XˆêŠp¬ ¢‚W˜Z—´ £‚SŽµ‹àŠñ ¢‚X‹ã”ò¬</fight>
++3534GI
+T1
+-0036FU
+T24
+'<fight>-937 £“¯@‹â ¢‚T‹ã—´ £‚T”ª‹àˆø ¢‚X‹ã—´ £‚QŽO‹â¬ ¢‚Q“ñ‹à £‚RŒÜŒj ¢“¯@Šp £“¯@Šp ¢‚QŽO‹à £‚U“ñŠp¬ ¢‚XŽµ—´</fight>
++3736GI
+T13
+-0069HI
+T1
+'<fight>-1206 £‚S‹ãŒj ¢‚W”ª—´ £‚T”ª•à ¢‚X‹ã”ò¬ £‚QŽO•à ¢‚Q˜Z £‚R”ª‹Ê ¢‚RˆêŠp £‚XˆêŠp¬ ¢‚W˜Z—´ £‚RŽµ”n ¢‚XŽµ—´ã</fight>
++0049KE
+T18
+-7988RY
+T5
+'<fight>-1097 £‚T”ª•à ¢‚X‹ã”ò¬ £‚XˆêŠp¬ ¢‚W˜Z—´ £‚QŽO ¢‚Rˆê‹à £‚S˜Z”n ¢“¯@—´ £“¯@‹à ¢‚XŽµ—´ £‚SŽO‹â•s¬ ¢ƒpƒX</fight>
++0058FU
+T5
+-6999RY
+T6
+'<fight>-1035 £‚XˆêŠp¬ ¢‚W˜Z—´ £‚QŽO ¢‚Rˆê‹à £‚S˜Z”n ¢‚T‹ã—´ £‚Qˆê¬ ¢“¯@‹Ê £‚RŽOŒj ¢‚Q“ñ‹Ê £‚SŽµ‹àŠñ</fight>
++0023FU
+T11
+-0026KY
+T2
+'<fight>-1060 £‚R”ª‹Ê ¢‚Rˆê‹à £‚XˆêŠp¬ ¢‚W˜Z—´ £‚U˜Z•à ¢‚UŽlŠp £“¯@”n ¢“¯@•à £‚SŽO‹â¬ ¢‚S“ñ•à £‚SŽl¬‹â ¢‚XŽµ—´ã</fight>
++2838OU
+T12
+-0031KI
+T1
+'<fight>-1038 £‚SŽO‹â¬ ¢‚SŽµ•à £“¯@‹Ê ¢‚TŒÜŒj £‚RŽµ‹Ê ¢‚SŽµ•à £‚TŽO¬‹â ¢“¯@‹â £‚R”ª‹à ¢‚S‹ã—´ £‚Q˜Z‹Ê ¢‚S”ª•à¬</fight>
++3443NG
+T30
+-0047FU
+T1
+'<fight>-882 £“¯@‹Ê ¢‚TŒÜŒj £‚RŽµ‹Ê ¢‚SŽµ•à £‚TŽO¬‹â ¢“¯@‹â £‚SŽµ‹àŠñ ¢‚W˜Z—´ £‚Q˜Z‹Ê ¢‚SŽµŒj¬ £“¯@‹â ¢‚XŽµ—´ã</fight>
++3847OU
+T11
+-9997RY
+T9
+'<fight>-688 £‚XˆêŠp¬ ¢‚W˜Z—´¶ £‚TŽO¬‹â ¢“¯@‹â £‚S˜Z”n ¢‚UŒÜŒj £‚T˜Z ¢‚Q‹ã¬ £‚UŽµ•à ¢‚P‹ã¬ £“¯@”n</fight>
++0032GI
+T54
+-8886RY
+T3
+'<fight>-943 £‚U˜Z•à ¢“¯@—´ £‚UŽµ•à ¢‚S˜Z—´ £“¯@‹à ¢‚TŒÜŒj £“¯@‹à ¢‚S˜Z•à £“¯@‹Ê ¢‚W˜Z—´ £‚T˜Z‹à ¢‚UŽlŠp</fight>
++0087FU
+T26
+-8646RY
+T1
+'<fight>-1186 £“¯@‹à ¢‚UŒÜŠp £‚T˜Z”ò ¢‚TŒÜ•à £“¯@‹à ¢‚WŽµ—´ £‚VŽµ•à ¢“¯@—´ £‚TŽµŒj ¢‚T˜ZŠp £“¯@‹à ¢‚XŽµŠp¬</fight>
++5746KI
+T7
+-0092KA
+T7
+'<fight>-934 £‚T˜Z‹à ¢‚WŽµ—´ £‚TŽµ‹àã ¢‚TŒÜ•à £‚Rˆê‹â¬ ¢‚T˜ZŠp £‚S”ª‹Ê ¢‚RˆêŠp £‚T˜Z‹à ¢“¯@•à £‚TŽµ•à</fight>
++4737OU
+T59
+-3132KI
+T1
+'<fight>-1784 £‚TŽO¬‹â ¢“¯@‹â £‚T“ñ”ò ¢‚WŽµ—´ £‚SŽµ‹àã ¢‚S“ñ‹â‘Å £‚Q˜Z‹Ê ¢‚Uˆê‹â £‚X“ñ”ò¬ ¢“¯@ £ƒpƒX ¢‚QŽO‹à</fight>
++4332NG
+T12
+-0028GI
+T1
+'<fight>-99998 £ƒpƒX</fight>

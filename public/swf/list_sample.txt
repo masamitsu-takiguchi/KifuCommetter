@@ -1,0 +1,4 @@
+kif_sample1.kif
+kif_sample2.kif
+csa_sample1.csa
+csa_sample2.csa

@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 class KifuDocumentsController < ApplicationController
   respond_to :haml, :xml
-  # GET
+
+  # GET /kifu_document/newp
   def new_with_plain_kifu
     @page_title = "新規投稿"
     if request.get?
@@ -17,6 +18,20 @@ class KifuDocumentsController < ApplicationController
         render :new_with_plain_kifu
       end
     end
+  end
+
+  # GET /kifudocuments/1.kifu
+  def kifu
+    @kifu_document = KifuDocument.find params[:id]
+    render :layout => false
+  end
+
+  # GET /kifudocuments/1.kif
+  # (Shift_JIS)
+  def kif
+    @kifu_document = KifuDocument.find params[:id]
+    @kifu_document.kifu = NKF.nkf("-s", @kifu_document.kifu)
+    render :kayout => false
   end
 
   # GET /kifu_documents

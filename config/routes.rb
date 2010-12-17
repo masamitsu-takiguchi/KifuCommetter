@@ -1,4 +1,6 @@
 KifuCommetter::Application.routes.draw do
+  get 'kifu_documents/:id.kif' => 'kifu_documents#kif', :as => :kifu_document_kif
+  get 'kifu_documents/:id.kifu' => 'kifu_documents#kifu', :as => :kifu_document_kifu
   get  'kifu_documents/newp' => 'kifu_documents#new_with_plain_kifu', :as => :newp_kifu_document
   post 'kifu_documents/newp' => 'kifu_documents#new_with_plain_kifu', :as => :newp_kifu_document
   resources :kifu_documents
@@ -52,7 +54,7 @@ KifuCommetter::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => "welcome#index"
+  root :to => "kifu_documents#index"
 
   # See how all your routes lay out with "rake routes"
 

@@ -1,0 +1,4 @@
+%object{:data => "#{root_path}swf/flaban.swf", :width => "450", :height => "350", :type => "application/x-shockwave-flash"}
+  %param{:name => "movie", :value => "#{root_path}swf/flaban.swf"}
+  %param{:name => "FlashVars", :value => "kifuName=http://#{request.raw_host_with_port}#{kifu_document_kif_path(@kifu_document)}"}
+  %param{:name => "bgcolor", :value => "#cff"}

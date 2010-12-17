@@ -1,21 +1,21 @@
 %p#notice= notice
 
+%h2= @kifu_document.title
 %p
-  %b Kifu documents:
-  = @kifu_document.kifu_documents
-%p
-  %b Title:
-  = @kifu_document.title
-%p
-  %b Kifu:
-  = @kifu_document.kifu
-%p
-  %b Uploaded by:
+  投稿日:
+  = l @kifu_document.created_at
+  by
   = @kifu_document.uploaded_by
+
+%center
+  %h3 棋譜
+  %hr
+  = render "kifu"
+
 %p
   %b Categories:
   = @kifu_document.categories
 
 = link_to 'Edit', edit_kifu_document_path(@kifu_document)
 \|
-= link_to 'Back', kifu_documents_path
+= link_to 'モドル', kifu_documents_path
