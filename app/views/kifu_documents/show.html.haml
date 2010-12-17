@@ -13,6 +13,10 @@
 %p
   コメント数:
   = @kifu_document.comments.count
+%p
+  戦型:
+  - @kifu_document.forms.each do |form|
+    = "【" + link_to(form.name, form_path(form)) + "】"
 
 %center
   %hr
@@ -30,6 +34,9 @@
       = link_to "ダウンロード（オリジナル）", download_original_kifu_document_path(@kifu_document)
     %td
       = link_to "マージ", merge_kifu_document_path(@kifu_document)
+
+%h3 コメント
+
 
 %p
   %b Categories:

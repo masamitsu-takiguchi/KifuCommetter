@@ -4,6 +4,7 @@ class KifuDocument < ActiveRecord::Base
   belongs_to :categories
   has_many :merged_kifu_documents, :class_name => 'KifuDocument'
   #has_and_belongs_to_many :categories
+  has_and_belongs_to_many :forms
   has_many :comments
 
   validates :kifu, :presence => true

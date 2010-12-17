@@ -4,6 +4,7 @@ KifuCommetter::Application.routes.draw do
   get 'documents/PoliciesAndThanks.html' => 'documents#policies_and_thanks', :as => :documents_policies_and_thanks
   get 'documents/GettingStarted.html' => 'documents#getting_started', :as => :documents_getting_started
   get 'documents/BugReport.html' => 'documents#bug_report', :as => :documents_bug_report
+  get 'documents/ToDo.html' => 'documents#todo', :as => :documents_todo
 
   get 'kifu_documents/:id/merge' => 'kifu_documents#merge', :as => :merge_kifu_document
   get 'kifu_documents/download/:id.kif' => 'kifu_documents#send_kifu', :as => :download_kifu_document

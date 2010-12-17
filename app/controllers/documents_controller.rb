@@ -14,4 +14,8 @@ class DocumentsController < ApplicationController
   # GET /documents/BugReport.html
   def bug_report
   end
+
+  # GET /document/ToDo.html
+  def todo
+  end
 end
