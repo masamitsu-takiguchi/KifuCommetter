@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
 class KifuDocument < ActiveRecord::Base
-  belongs_to :kifu_documents
+  belongs_to :kifu_document
   belongs_to :categories
+  has_many :merged_kifu_documents, :class_name => 'KifuDocument'
+  #has_and_belongs_to_many :categories
+  has_many :comments
 
   validates :kifu, :presence => true
 
@@ -18,6 +21,10 @@ class KifuDocument < ActiveRecord::Base
       self.kifu_content_type = stream.content_type
       self.kifu = stream.read
     end
+  end
+
+  def parent_kifu_document_id= kifu_document_id
+    self.merged_kifu_documents << KifuDocument.find(kifu_document_id)
   end
 
   def validate

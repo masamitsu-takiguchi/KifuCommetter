@@ -2,15 +2,34 @@
 
 %h2= @kifu_document.title
 %p
-  投稿日:
+  投稿日時:
   = l @kifu_document.created_at
   by
-  = @kifu_document.uploaded_by
+  %strong= @kifu_document.uploaded_by
+%p
+  マージされた回数:
+  = @kifu_document.merged_kifu_documents.count
+  回
+%p
+  コメント数:
+  = @kifu_document.comments.count
 
 %center
   %hr
   %br
   = render "kifu"
+  %br
+  %br
+  %hr
+
+%table{:width => "100%"}
+  %tr
+    %td
+      = link_to "ダウンロード", download_kifu_document_path(@kifu_document)
+      %br
+      = link_to "ダウンロード（オリジナル）", download_original_kifu_document_path(@kifu_document)
+    %td
+      = link_to "マージ", merge_kifu_document_path(@kifu_document)
 
 %p
   %b Categories:
