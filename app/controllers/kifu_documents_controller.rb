@@ -26,7 +26,7 @@ class KifuDocumentsController < ApplicationController
 
   # GET /kifu_documents/download/1.kif
   def send_kifu
-    send_data NKF.nkf("-s", KifuDocument.find(params[:id]).kifu)
+    send_data NKF.nkf("-s", merged_kifu(KifuDocument.find(params[:id])))
   end
 
   # GET /kifu_document/newp

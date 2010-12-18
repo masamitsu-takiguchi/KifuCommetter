@@ -1,7 +1,7 @@
 %center
   = form_for @kifu_document, :html => {:multipart => true} do |f|
     = f.hidden_field :parent_kifu_document_id, :value => @parent_kifu_document.id if @parent_kifu_document
-    = f.hidden_field :parent_forms_ids, :value => @parent_kifu_document.forms.map{|form| form.id}.join(",")
+    = f.hidden_field :parent_forms_ids, :value => @parent_kifu_document.forms.map{|form| form.id}.join(",") if @parent_kifu_document
     - if @kifu_document.errors.any?
       #error_explanation
         %h3 エラーが検出されました:

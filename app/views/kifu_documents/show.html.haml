@@ -2,17 +2,23 @@
 
 %h2= link_to @kifu_document.title, kifu_document_path(@kifu_document)
 %p
-  投稿日時:
-  = l @kifu_document.created_at
-  by
-  %strong= @kifu_document.uploaded_by
-  %br
-  マージされた回数:
-  = @kifu_document.merged_kifu_documents.count
-  回
-  %br
-  コメント数:
-  = @kifu_document.comments.count
+  %table{:width => "100%"}
+    %tr
+      %td
+        投稿日時:
+        = l @kifu_document.created_at
+        by
+        %strong= @kifu_document.uploaded_by
+        %br
+        マージされた回数:
+        = @kifu_document.merged_kifu_documents.count
+        回
+        %br
+        コメント数:
+        = @kifu_document.comments.count
+      %td{:style => "text-align:right;"}
+        = raw "[" + link_to("編集", edit_kifu_document_path(@kifu_document)) + "]"
+        = raw "[" + link_to("削除", kifu_document_path(@kifu_document), :method => :delete, :confirm => "破棄しますか？") + "]"
   %br
   戦型:
   - if @kifu_document.forms.blank?
