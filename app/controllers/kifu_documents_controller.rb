@@ -187,7 +187,7 @@ class KifuDocumentsController < ApplicationController
         k2 = Kifu::Kifu.new merged_kifu_document.kifu, merged_kifu_document.uploaded_by
         k1 = k1 & k2
       end 
-      return k1.to_s_with_name
+      return k1.to_s
     end
   end
 end
