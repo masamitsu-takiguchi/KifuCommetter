@@ -172,7 +172,7 @@ class KifuDocumentsController < ApplicationController
 
   protected
   def check_user
-    if not session[:user].kifu_document_ids.has_key? params[:id]
+    if not session[:user].kifu_document_ids.has_key? params[:id].to_i
       redirect_to kifu_documents_url, :notice => "許可されていない操作です。"
     end
   end
