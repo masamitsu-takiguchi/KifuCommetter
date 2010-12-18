@@ -174,7 +174,14 @@ ja:
   activerecord:
     models:
       kifu_document:
+      form:
+      comment:
     attributes:
+      comment:
+        name: "名前"
+        message: "メッセージ"
+      form:
+        name: "戦型名"
       kifu_document:
         kifu: "棋譜"
         title: "タイトル"

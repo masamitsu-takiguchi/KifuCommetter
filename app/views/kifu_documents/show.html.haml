@@ -1,6 +1,6 @@
 %p#notice= notice
 
-%h2= @kifu_document.title
+%h2= link_to @kifu_document.title, kifu_document_path(@kifu_document)
 %p
   投稿日時:
   = l @kifu_document.created_at
@@ -16,17 +16,22 @@
 %p
   戦型:
   - @kifu_document.forms.each do |form|
-    = "【" + link_to(form.name, form_path(form)) + "】"
-  %br
+    = raw "【" + link_to(form.name, form_path(form)) + "】"
   = form_for(@form) do |f|
-    = f.label :name
-    = f.text_field :name
-    = f.submit "追加"
+    - if @form.errors.any?
+      #error_explanation
+        %h3 エラーが検出されました:
+        %ul
+          - @form.errors.full_messages.each do |msg|
+            %li= msg
+    = f.hidden_field :kifu_document_id, :value => @kifu_document.id
+    = f.text_field :name, :size => 5
+    = f.submit "戦型追加"
 
 %center
   %hr
   %br
-  = render "kifu"
+  = render :partial => "kifu_documents/kifu"
   %br
   %br
   %hr
@@ -41,11 +46,28 @@
       = link_to "マージ", merge_kifu_document_path(@kifu_document)
 
 %h3 コメント
+- @kifu_document.comments.each do |comment|
+  = l comment.created_at
+  \| 
+  = comment.name
+  \|
+  = comment.message
+  %hr
+  %br
 
-
-%p
-  %b Categories:
-  = @kifu_document.categories
+= form_for (@comment) do |f|
+  - if @comment.errors.any?
+    #error_explanation
+      %h3 エラーが検出されました:
+      %ul
+        - @comment.errors.full_messages.each do |msg|
+          %li= msg
+  = f.hidden_field :kifu_document_id, :value => @kifu_document.id
+  = f.label :name
+  = f.text_field :name, :size => 5
+  = f.label :message
+  = f.text_field :message
+  = f.submit "コメント"
 
 = link_to 'Edit', edit_kifu_document_path(@kifu_document)
 \|

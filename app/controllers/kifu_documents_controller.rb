@@ -81,7 +81,7 @@ class KifuDocumentsController < ApplicationController
     @kifu_document = KifuDocument.find params[:id]
     @kif = NKF.nkf("-s", merged_kifu(@kifu_document))
     
-    render :kayout => false
+    render :layout => false
   end
 
   # GET /kifu_documents
@@ -100,6 +100,7 @@ class KifuDocumentsController < ApplicationController
   def show
     @kifu_document = KifuDocument.find(params[:id])
     @form = Form.new
+    @comment = Comment.new
 
     respond_to do |format|
       format.html # show.html.erb
@@ -176,8 +177,8 @@ class KifuDocumentsController < ApplicationController
       kifu_document.merged_kifu_documents.each do |merged_kifu_document|
         k2 = Kifu::Kifu.new merged_kifu_document.kifu, merged_kifu_document.uploaded_by
         k1 = k1 & k2
-        k1.to_s_with_name
       end 
+      return k1.to_s_with_name
     end
   end
 end

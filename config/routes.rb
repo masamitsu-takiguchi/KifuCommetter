@@ -1,4 +1,7 @@
 KifuCommetter::Application.routes.draw do
+  resources :forms
+  resources :comments
+
   get 'documents' => 'documents#readme', :as => :documents
   get 'documents/ReadMe.html' => 'documents#readme', :as => :documents_readme
   get 'documents/PoliciesAndThanks.html' => 'documents#policies_and_thanks', :as => :documents_policies_and_thanks
