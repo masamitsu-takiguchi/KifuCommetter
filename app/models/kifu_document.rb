@@ -28,6 +28,11 @@ class KifuDocument < ActiveRecord::Base
     self.merged_kifu_documents << KifuDocument.find(kifu_document_id)
   end
 
+  def parent_forms_ids= string
+    array = string.split(',')
+    self.forms = array.map{ |id| Form.find(id) }
+  end
+
   def validate
     if @kifu_file.blank? and @upload
       errors.add(:kifu_file, 'が指定されていません。')
