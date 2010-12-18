@@ -10,16 +10,23 @@
         by
         %strong= @kifu_document.uploaded_by
         %br
-        マージされた回数:
-        = @kifu_document.merged_kifu_documents.count
-        回
-        %br
         コメント数:
         = @kifu_document.comments.count
+        %br
+        元の棋譜:
+        = raw link_to @kifu_document.kifu_document.title, @kifu_document.kifu_document if not @kifu_document.kifu_document.blank?
       %td{:style => "text-align:right;"}
         - if session[:user].kifu_document_ids.has_key? @kifu_document.id
           = raw "[" + link_to("編集", edit_kifu_document_path(@kifu_document)) + "]"
           = raw "[" + link_to("削除", kifu_document_path(@kifu_document), :method => :delete, :confirm => "破棄しますか？") + "]"
+    %tr
+      %td 投稿者からのひとこと:
+      %td{:style => "text-align:left;"}
+        - if @kifu_document.note.blank?
+          特になし
+        - else
+          = @kifu_document.note
+
   %br
   戦型:
   - if @kifu_document.forms.blank?

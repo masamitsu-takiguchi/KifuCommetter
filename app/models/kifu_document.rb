@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
 class KifuDocument < ActiveRecord::Base
   belongs_to :kifu_document
-  belongs_to :categories
   has_many :merged_kifu_documents, :class_name => 'KifuDocument'
-  #has_and_belongs_to_many :categories
   has_and_belongs_to_many :forms
   has_many :comments
 
@@ -14,6 +12,20 @@ class KifuDocument < ActiveRecord::Base
   before_save :title_check, :encode_kifu
 
   PatternOfDistinctKifuOrOtherData = /手数/
+
+  def all_children
+    self.all_children_map.flatten
+  end
+
+  def all_children_map
+    if self.merged_kifu_documents.blank?
+      return []
+    else
+      self.merged_kifu_documents.map do |kifu_document|
+        [kifu_document] + kifu_document.all_children
+      end
+    end
+  end
 
   def kifu_file= stream
     @kifu_file = stream

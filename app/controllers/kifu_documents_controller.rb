@@ -132,7 +132,7 @@ class KifuDocumentsController < ApplicationController
 
     respond_to do |format|
       if @kifu_document.save
-        session[:user].kifu_document_ids << @kifu_document.id
+        session[:user].kifu_document_ids[@kifu_document.id] = true
         format.html { redirect_to(@kifu_document, :notice => "棋譜【#{@kifu_document.title}】のアップロードに成功しました！") }
         format.xml  { render :xml => @kifu_document, :status => :created, :location => @kifu_document }
       else
@@ -183,7 +183,8 @@ class KifuDocumentsController < ApplicationController
       kifu_document.kifu
     else
       k1 = Kifu::Kifu.new kifu_document.kifu, kifu_document.uploaded_by
-      kifu_document.merged_kifu_documents.each do |merged_kifu_document|
+      logger.debug kifu_document.all_children.inspect
+      kifu_document.all_children.each do |merged_kifu_document|
         k2 = Kifu::Kifu.new merged_kifu_document.kifu, merged_kifu_document.uploaded_by
         k1 = k1 & k2
       end 
