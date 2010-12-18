@@ -11,6 +11,7 @@ class FormsController < ApplicationController
   def create
     @form = Form.new params[:form]
     if @form.save
+      session[:user].form_ids[@form.id] = true
       respond_with @forms do |format|
         format.html { redirect_to kifu_document_url(params[:form][:kifu_document_id]), :notice => "戦型【#{@form.name}】を追加しました。" }
       end

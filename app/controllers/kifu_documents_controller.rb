@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 class KifuDocumentsController < ApplicationController
   respond_to :haml, :xml
+  before_filter :check_user, :only => [:update, :edit, :destroy]
 
   # GET /kifu_documents/1/merge
   def merge
@@ -131,6 +132,7 @@ class KifuDocumentsController < ApplicationController
 
     respond_to do |format|
       if @kifu_document.save
+        session[:user].kifu_document_ids << @kifu_document.id
         format.html { redirect_to(@kifu_document, :notice => "棋譜【#{@kifu_document.title}】のアップロードに成功しました！") }
         format.xml  { render :xml => @kifu_document, :status => :created, :location => @kifu_document }
       else
@@ -145,9 +147,9 @@ class KifuDocumentsController < ApplicationController
   def update
     @kifu_document = KifuDocument.find(params[:id])
 
-    respond_to do |format|
+    respond_with @kifu_document do |format|
       if @kifu_document.update_attributes(params[:kifu_document])
-        format.html { redirect_to(@kifu_document, :notice => 'Kifu document was successfully updated.') }
+        format.html { redirect_to(@kifu_document, :notice => "【#{@kifu_document.title}を更新しました！") }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -165,6 +167,13 @@ class KifuDocumentsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(kifu_documents_url) }
       format.xml  { head :ok }
+    end
+  end
+
+  protected
+  def check_user
+    if not session[:user].kifu_document_ids.has_key? params[:id]
+      redirect_to kifu_documents_url, :notice => "許可されていない操作です。"
     end
   end
 

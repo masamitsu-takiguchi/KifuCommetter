@@ -17,8 +17,9 @@
         コメント数:
         = @kifu_document.comments.count
       %td{:style => "text-align:right;"}
-        = raw "[" + link_to("編集", edit_kifu_document_path(@kifu_document)) + "]"
-        = raw "[" + link_to("削除", kifu_document_path(@kifu_document), :method => :delete, :confirm => "破棄しますか？") + "]"
+        - if session[:user].kifu_document_ids.has_key? @kifu_document.id
+          = raw "[" + link_to("編集", edit_kifu_document_path(@kifu_document)) + "]"
+          = raw "[" + link_to("削除", kifu_document_path(@kifu_document), :method => :delete, :confirm => "破棄しますか？") + "]"
   %br
   戦型:
   - if @kifu_document.forms.blank?
@@ -36,6 +37,7 @@
     = f.hidden_field :kifu_document_id, :value => @kifu_document.id
     = f.text_field :name, :size => 5
     = f.submit "戦型追加"
+    %font{:color => "red"} ※戦型はひとつずつ追加してください
 
 %center
   %hr
@@ -51,16 +53,25 @@
       = link_to "ダウンロード", download_kifu_document_path(@kifu_document)
       %br
       = link_to "ダウンロード（オリジナル）", download_original_kifu_document_path(@kifu_document)
+      %br
+      = link_to 'モドル', kifu_documents_path
     %td
       = link_to "マージ", merge_kifu_document_path(@kifu_document)
 
 %h3 コメント
 - @kifu_document.comments.each do |comment|
-  = l comment.created_at
-  \| 
-  = comment.name
-  \|
-  = comment.message
+  %table{:width => "100%"}
+    %tr
+      %td
+        = l comment.created_at
+        \| 
+        = comment.name
+        \|
+        = comment.message
+      %td
+        - if session[:user].comment_ids.has_key? comment.id
+          - session[:request_uri] = request.request_uri
+          = raw "[" + link_to("削除", comment, :method => :delete, :confirm => "削除しますか？") + "]"
   %hr
   %br
 
@@ -77,7 +88,3 @@
   = f.label :message
   = f.text_field :message
   = f.submit "コメント"
-
-= link_to 'Edit', edit_kifu_document_path(@kifu_document)
-\|
-= link_to 'モドル', kifu_documents_path

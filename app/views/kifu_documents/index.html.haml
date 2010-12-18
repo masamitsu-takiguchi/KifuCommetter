@@ -1,4 +1,4 @@
-%p.notice= notice if notice
+%p#notice= notice if notice
 
 %h2 投稿された棋譜
 
@@ -20,8 +20,10 @@
           %font{:color => "green"}= distance_of_time_in_words(Time.now, kifu_document.updated_at) + "前"
         %td{:style => "text-align:right;"}
           = raw "[" + link_to("見る", kifu_document_path(kifu_document)) + "]"
-          = raw "[" + link_to("編集", edit_kifu_document_path(kifu_document)) + "]"
-          = raw "[" + link_to("破棄", kifu_document, :method => :delete, :confirm => "破棄しますか？") + "]"
+          - if session[:user].kifu_document_ids.has_key? kifu_document.id
+            = raw "[" + link_to("編集", edit_kifu_document_path(kifu_document)) + "]"
+          - if session[:user].kifu_document_ids.has_key? kifu_document.id
+            = raw "[" + link_to("破棄", kifu_document, :method => :delete, :confirm => "破棄しますか？") + "]"
     %hr
     %p
       戦型:
