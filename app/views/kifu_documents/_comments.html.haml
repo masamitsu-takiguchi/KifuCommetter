@@ -1,0 +1,16 @@
+- @comments.each do |comment|
+  %div{:id => "comment_#{comment.id}"}
+    %table{:width => "100%"}
+      %tr
+        %td
+          = l comment.created_at
+          \| 
+          = comment.name
+          \|
+          = comment.message
+        %td
+          - if session[:user].comment_ids[comment.id]
+            - session[:request_uri] = request.fullpath
+            = raw "[" + link_to("削除", comment, :method => :delete, :confirm => "削除しますか？") + "]"
+    %hr
+    %br

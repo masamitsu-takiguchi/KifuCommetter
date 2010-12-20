@@ -106,10 +106,16 @@ class KifuDocumentsController < ApplicationController
     @form = Form.new
     @comment = Comment.new
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @kifu_document }
+    @page = params[:page].to_i or 1
+    @comments = Comment.of_kifu_document(@kifu_document.id).paginate(@page, nil)
+    if not @page.zero?
+      @morepage = @page + 1 
+    else
+      @morepage = 2
     end
+    @morepage = nil if Comment.of_kifu_document(@kifu_document.id).paginate(@page+1, nil).length.zero?
+
+    respond_with @kifu_documents
   end
 
   # GET /kifu_documents/new

@@ -1,0 +1,7 @@
+# -*- mode: ruby -*-
+page.insert_html(:bottom, "comments", :partial => "kifu_documents/comments", :locals => {:comments => @comments})
+@comments.each do |comment|
+  page["comment_" + comment.id.to_s].visual_effect :highlight
+end
+
+page.replace_html(:more, :partial => "more_comments")

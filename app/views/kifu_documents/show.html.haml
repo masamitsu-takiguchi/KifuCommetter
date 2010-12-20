@@ -44,7 +44,7 @@
     = f.hidden_field :kifu_document_id, :value => @kifu_document.id
     = f.text_field :name, :size => 5
     = f.submit "戦型追加"
-    %font{:color => "red"} ※戦型はひとつずつ追加してください
+    %font{:color => "red"} ※ダブルクリックで候補が出ます
 
 %center
   %hr
@@ -66,21 +66,9 @@
       = link_to "マージ", merge_kifu_document_path(@kifu_document)
 
 %h3 コメント
-- @kifu_document.comments.each do |comment|
-  %table{:width => "100%"}
-    %tr
-      %td
-        = l comment.created_at
-        \| 
-        = comment.name
-        \|
-        = comment.message
-      %td
-        - if session[:user].comment_ids.has_key? comment.id
-          - session[:request_uri] = request.request_uri
-          = raw "[" + link_to("削除", comment, :method => :delete, :confirm => "削除しますか？") + "]"
-  %hr
-  %br
+%div#comments
+  = render "kifu_documents/comments"
+= render "kifu_documents/more_comments"
 
 = form_for (@comment) do |f|
   - if @comment.errors.any?

@@ -1,0 +1,10 @@
+- if @morepage
+  %div#more
+    %center
+      %a= link_to "もっと読む", {:page => (@morepage)}, :method => :get, :remote => true
+- else
+  %center
+    %p
+      %font{:color => "gray"}
+        %i
+          これ以降のコメントはありません。
