@@ -30,7 +30,7 @@ class KifuDocumentsController < ApplicationController
     send_data NKF.nkf("-s", merged_kifu(KifuDocument.find(params[:id])))
   end
 
-  # GET /kifu_document/newp
+  # GET|POST /kifu_document/newp
   def new_with_plain_kifu
     @page_title = "新規投稿"
     @action = newp_kifu_document_url
@@ -42,6 +42,7 @@ class KifuDocumentsController < ApplicationController
       @kifu_document.upload = false
       if @kifu_document.save
         respond_with @kifu_document do |format|
+          session[:user].kifu_document_ids[@kifu_document.id] = true
           format.html { redirect_to @kifu_document, :notice => "棋譜【#{@kifu_document.title}】を投稿しました！" }
         end
       else
@@ -50,7 +51,7 @@ class KifuDocumentsController < ApplicationController
     end
   end
 
-  # GET /kifudocuments/1/editu
+  # GET|PUT /kifudocuments/1/editu
   def edit_with_upload
     @page_title = "棋譜情報の編集"
     @action = editu_kifu_document_url
@@ -136,7 +137,7 @@ class KifuDocumentsController < ApplicationController
     respond_to do |format|
       if @kifu_document.save
         session[:user].kifu_document_ids[@kifu_document.id] = true
-        format.html { redirect_to(@kifu_document, :notice => "棋譜【#{@kifu_document.title}】のアップロードに成功しました！") }
+        format.html { redirect_to(@kifu_document, :notice => "棋譜【#{@kifu_document.title}】を投稿しました！") }
         format.xml  { render :xml => @kifu_document, :status => :created, :location => @kifu_document }
       else
         format.html { render :action => "new" }
