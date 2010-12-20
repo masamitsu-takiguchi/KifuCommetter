@@ -2,6 +2,16 @@
 class FormsController < ApplicationController
   respond_to :html
 
+  # GET /forms/autocomplete
+  def autocomplete
+    @forms = Forms.all
+    respond_to do |format|
+      format.json {
+        render :text => {:query => params[:query], :suggestions => @forms}.to_json
+      }
+    end
+  end
+
   # GET /forms
   def index
     @forms = Form.all
