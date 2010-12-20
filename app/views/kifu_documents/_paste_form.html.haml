@@ -1,4 +1,4 @@
-= form_for @kifu_document, :url => {:action => @action} do |f|
+= form_for @kifu_document do |f|
   - if @kifu_document.errors.any?
     #error_explanation
       %h3 エラーが検出されました:

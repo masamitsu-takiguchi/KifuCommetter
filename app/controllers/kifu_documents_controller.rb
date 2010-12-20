@@ -54,7 +54,6 @@ class KifuDocumentsController < ApplicationController
   # GET|PUT /kifudocuments/1/editu
   def edit_with_upload
     @page_title = "棋譜情報の編集"
-    @action = editu_kifu_document_url
     if request.get?
       @kifu_document = KifuDocument.find params[:id]
       respond_with @kifu_document
