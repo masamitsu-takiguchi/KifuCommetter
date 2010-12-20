@@ -24,14 +24,14 @@
           - else
             - kifu_document.forms.each do |form|
               = "【" + form.name + "】"
-        %br
-        マージされた回数:
-        = kifu_document.merged_kifu_documents.count
-        回
-        %br
-        コメント数:
-        = kifu_document.comments.count
-        %td 投稿者からひとこと:
-        %br
-        = kifu_document.note
+          %br
+          マージされた回数:
+          = kifu_document.merged_kifu_documents.count
+          回
+          %br
+          コメント数:
+          = kifu_document.comments.count
+        %td
+          - if not kifu_document.note.blank?
+            %font{:color => "orange"}= kifu_document.note
   %br
