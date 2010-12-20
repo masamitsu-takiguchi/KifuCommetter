@@ -125,6 +125,7 @@ class KifuDocumentsController < ApplicationController
   # GET /kifu_documents/1/edit
   def edit
     @kifu_document = KifuDocument.find(params[:id])
+    respond_with @kifu_document
   end
 
   # POST /kifu_documents
