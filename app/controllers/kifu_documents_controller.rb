@@ -89,13 +89,14 @@ class KifuDocumentsController < ApplicationController
   # GET /kifu_documents
   # GET /kifu_documents.xml
   def index
-    @kifu_documents = KifuDocument.order(:updated_at.desc).paginate(params[:page].to_i, nil)
-    if not params[:page].blank?
-      @morepage = params[:page].to_i + 1 
+    @page = params[:page].to_i or 1
+    @kifu_documents = KifuDocument.order(:updated_at.desc).paginate(@page, nil)
+    if not @page.zero?
+      @morepage = @page + 1 
     else
       @morepage = 2
     end
-    @morepage = nil if KifuDocument.paginate(params[:page].to_i+1, nil).count.zero?
+    @morepage = nil if KifuDocument.paginate(@page+1, nil).length.zero?
     respond_with @kifu_documents
   end
 
