@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 class KifuDocumentsController < ApplicationController
-  respond_to :haml, :xml, :js
+  respond_to :html, :xml, :js
   before_filter :check_user, :only => [:update, :edit, :destroy]
 
   # GET /kifu_documents/1/merge
