@@ -13,6 +13,7 @@ gem 'carrierwave'
 gem 'meta_where'
 gem 'steak'
 gem 'haml-rails'
+gem 'mongrel'
 
 # Use unicorn as the web server
 # gem 'unicorn'

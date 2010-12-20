@@ -1,0 +1,7 @@
+# -*- mode: ruby -*-
+page.insert_html(:bottom, "kifu_documents", :partial => "kifu_documents/kifu_documents", :locals => {:kifu_documents => @kifu_documents})
+@kifu_documents.each do |kifu_document|
+  page["kifu_document_" + kifu_document.id.to_s].visual_effect :highlight
+end
+
+page.replace_html(:more, :partial => "more")

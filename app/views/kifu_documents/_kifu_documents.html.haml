@@ -1,36 +1,37 @@
 - @kifu_documents.each do |kifu_document|
-  %table{:width => "100%"}
-    %tr
-      %td
-        = link_to kifu_document.title, kifu_document_path(kifu_document)
-        by
-        = kifu_document.uploaded_by
-        on
-        %font{:color => "green"}= distance_of_time_in_words(Time.now, kifu_document.updated_at) + "前"
-      %td{:style => "text-align:right;"}
-        = raw "[" + link_to("見る", kifu_document_path(kifu_document)) + "]"
-        - if session[:user].kifu_document_ids.has_key? kifu_document.id
-          = raw "[" + link_to("編集", edit_kifu_document_path(kifu_document)) + "]"
-        - if session[:user].kifu_document_ids.has_key? kifu_document.id
-          = raw "[" + link_to("破棄", kifu_document, :method => :delete, :confirm => "破棄しますか？") + "]"
-      %hr
-      %table{:width => "100%"}
-        %tr
-          %td
-            戦型:
-            - if kifu_document.forms.blank?
-              %font{:color => "red"} 未指定
-            - else
-              - kifu_document.forms.each do |form|
-                = "【" + form.name + "】"
-            %br
-            マージされた回数:
-            = kifu_document.merged_kifu_documents.count
-            回
-            %br
-            コメント数:
-            = kifu_document.comments.count
-          %td 投稿者からひとこと:
-          %br
-          = kifu_document.note
+  %div{:id => "kifu_document_"+kifu_document.id.to_s}
+    %table{:width => "100%"}
+      %tr
+        %td
+          = link_to kifu_document.title, kifu_document_path(kifu_document)
+          by
+          = kifu_document.uploaded_by
+          on
+          %font{:color => "green"}= distance_of_time_in_words(Time.now, kifu_document.updated_at) + "前"
+        %td{:style => "text-align:right;"}
+          = raw "[" + link_to("見る", kifu_document_path(kifu_document)) + "]"
+          - if session[:user].kifu_document_ids.has_key? kifu_document.id
+            = raw "[" + link_to("編集", edit_kifu_document_path(kifu_document)) + "]"
+          - if session[:user].kifu_document_ids.has_key? kifu_document.id
+            = raw "[" + link_to("破棄", kifu_document, :method => :delete, :confirm => "破棄しますか？") + "]"
+        %hr
+    %table{:width => "100%"}
+      %tr
+        %td
+          戦型:
+          - if kifu_document.forms.blank?
+            %font{:color => "red"} 未指定
+          - else
+            - kifu_document.forms.each do |form|
+              = "【" + form.name + "】"
+              %br
+              マージされた回数:
+              = kifu_document.merged_kifu_documents.count
+              回
+              %br
+              コメント数:
+              = kifu_document.comments.count
+        %td 投稿者からひとこと:
+        %br
+        = kifu_document.note
   %br

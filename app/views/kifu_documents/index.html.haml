@@ -6,7 +6,9 @@
 
 %br
 
-- if @kifu_documents.blank?
-  %p 投稿棋譜はありません。
-- else
-  = render 'kifu_documents/kifu_documents'
+%div#kifu_documents
+  - if @kifu_documents.blank?
+    %p 投稿棋譜はありません。
+  - else
+    = render 'kifu_documents/kifu_documents'
+= render 'kifu_documents/more'

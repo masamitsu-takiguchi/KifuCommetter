@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 class KifuDocumentsController < ApplicationController
-  respond_to :haml, :xml
+  respond_to :haml, :xml, :js
   before_filter :check_user, :only => [:update, :edit, :destroy]
 
   # GET /kifu_documents/1/merge
@@ -88,12 +88,14 @@ class KifuDocumentsController < ApplicationController
   # GET /kifu_documents
   # GET /kifu_documents.xml
   def index
-    @kifu_documents = KifuDocument.order(:updated_at.desc)
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @kifu_documents }
+    @kifu_documents = KifuDocument.order(:updated_at.desc).paginate(params[:page].to_i, nil)
+    if not params[:page].blank?
+      @morepage = params[:page].to_i + 1 
+    else
+      @morepage = 2
     end
+    @morepage = nil if KifuDocument.paginate(params[:page].to_i+1, nil).count.zero?
+    respond_with @kifu_documents
   end
 
   # GET /kifu_documents/1
