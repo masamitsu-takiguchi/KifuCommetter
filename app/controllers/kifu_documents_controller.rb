@@ -153,7 +153,7 @@ class KifuDocumentsController < ApplicationController
 
     respond_with @kifu_document do |format|
       if @kifu_document.update_attributes(params[:kifu_document])
-        format.html { redirect_to(@kifu_document, :notice => "【#{@kifu_document.title}を更新しました！") }
+        format.html { redirect_to(@kifu_document, :notice => "【#{@kifu_document.title}】を更新しました！") }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
