@@ -44,14 +44,7 @@ module KifuCommetter
     config.filter_parameters += [:password]
 
     # Configure ActionMailer
-    config.action_mailer.smtp_settings = {
-      :enable_starttls_auto => false,
-      :address => 'kifu.hamanako-jp.com',
-      :port => '587',
-      :domain => 'kifu.hamanako-jp.com',
-      :user_name => 'sandmark',
-      :password => ''
-    }
+    config.action_mailer.delivery_method = :sendmail
 
     # Configure Exception Notification
     config.middleware.use "::ExceptionNotifier",
