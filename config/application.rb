@@ -21,6 +21,7 @@ module KifuCommetter
     # Only load the plugins named here, in the order given (default is alphabetical).
     # :all can be used as a placeholder for all plugins not explicitly named.
     # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
+    config.plugins = [:all]
 
     # Activate observers that should always be running.
     # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
@@ -41,6 +42,13 @@ module KifuCommetter
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+
+    # Configure Exception Notification
+    config.middleware.use "::ExceptionNotifier",
+      :email_prefix => "[KifuCometter] ",
+      :sender_address => %{"notifier" <notifier@kifu.hamanako-jp.com>},
+      :exception_recipients => %w{sandmark.m@gmail.com}
+
 
     config.generators do |g|
       g.template_engine :haml
