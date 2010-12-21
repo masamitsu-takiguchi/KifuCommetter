@@ -3,6 +3,13 @@ class KifuDocumentsController < ApplicationController
   respond_to :html, :xml, :js
   before_filter :check_user, :only => [:update, :edit, :destroy]
 
+  # GET /kifu_documents/toggle_form_visible
+  def toggle_form_visible
+    respond_to do |format|
+      format.js
+    end
+  end
+
   # GET /kifu_documents/1/merge
   def merge
     @kifu_document = KifuDocument.new

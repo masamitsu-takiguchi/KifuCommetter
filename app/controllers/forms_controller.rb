@@ -4,10 +4,10 @@ class FormsController < ApplicationController
 
   # GET /forms/autocomplete
   def autocomplete
-    @forms = Forms.all
+    @forms = Form.all
     respond_to do |format|
       format.json {
-        render :text => {:query => params[:query], :suggestions => @forms}.to_json
+        render :text => {:query => params[:query], :suggestions => @forms.map{|form| form.name}}.to_json
       }
     end
   end
@@ -21,6 +21,7 @@ class FormsController < ApplicationController
   def create
     @form = Form.new params[:form]
     if @form.save
+      @comments = Comment.of_kifu_document(@form.kifu_document_id)
       session[:user].form_ids[@form.id] = true
       respond_with @forms do |format|
         format.html { redirect_to kifu_document_url(params[:form][:kifu_document_id]), :notice => "戦型【#{@form.name}】を追加しました。" }

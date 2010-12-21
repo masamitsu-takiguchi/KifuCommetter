@@ -2,7 +2,10 @@ KifuCommetter::Application.routes.draw do
   resources :forms
   resources :comments
 
-  get 'forms/autocomplete' =>
+  get('kifu_documents/toggle_form' => 'kifu_documents#toggle_form_visible',
+      :as => :toggle_form_visible)
+
+  get 'forms_autocomplete(?query=:query)' =>
     'forms#autocomplete', :as => :forms_autocomplete
 
   get 'documents' => 'documents#readme', :as => :documents
