@@ -6,6 +6,7 @@ class KifuDocument < ActiveRecord::Base
   has_many :comments
 
   validates :kifu, :presence => true
+  validate :proper_kifu?, :proper_path?
 
   attr_accessor :upload
 
@@ -56,10 +57,12 @@ class KifuDocument < ActiveRecord::Base
     self.forms = array.map{ |id| Form.find(id) }
   end
 
-  def validate
-    if @kifu_file.blank? and @upload
-      errors.add(:kifu_file, 'が指定されていません。')
-    elsif not NKF.nkf("-w", self.kifu).match PatternOfDistinctKifuOrOtherData and @upload
+  def proper_path?
+    errors.add(:kifu_file, 'が指定されていません。') if @kifu_file.blank? and @upload
+  end
+
+  def proper_kifu?
+    if @upload and NKF.nkf('-w', self.kifu.to_s).match PatternOfDistinctKifuOrOtherData
       errors.add(:kifu_file, 'は正式な棋譜ファイルではありません。')
     end
   end
