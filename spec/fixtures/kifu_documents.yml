@@ -1,6 +1,6 @@
 sandmark:
   id: 1
-  kifu_documents_id:
+  kifu_documents_id: 1
   title: "sandmark"
   kifu: "手数"
   uploaded_by: "sandmark"
@@ -18,5 +18,5 @@ asanebou:
   note: "note"
   kifu_content_type:
   kifu_original_filename:
-  kifu_document_id:
+  kifu_document_id: 1
   forms_id: 1

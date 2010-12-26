@@ -4,3 +4,9 @@ yagura_sandmark:
 yagura_asanebou:
   form_id: 1
   kifu_document_id: 2
+nakabisha_sandmark:
+  form_id: 1
+  kifu_document_id: 1
+nakabisha_asanebou:
+  form_id: 1
+  kifu_document_id: 2
