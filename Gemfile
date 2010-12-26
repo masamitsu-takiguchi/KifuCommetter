@@ -7,7 +7,11 @@ gem 'rails', '3.0.3'
 
 gem 'sqlite3-ruby', '1.2.4', :require => 'sqlite3'
 gem 'haml'
-gem 'rspec-rails'
+
+group :development, :test do
+  gem 'rspec-rails', ">= 2.3.1"
+end
+
 gem 'rails3-generators'
 gem 'carrierwave'
 gem 'meta_where'

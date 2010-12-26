@@ -15,7 +15,8 @@ KifuCommetter::Application.routes.draw do
   get 'documents/BugReport.html' => 'documents#bug_report', :as => :documents_bug_report
   get 'documents/ToDo.html' => 'documents#todo', :as => :documents_todo
 
-  get 'kifu_documents/:id/merge' => 'kifu_documents#merge', :as => :merge_kifu_document
+  get 'kifu_documents/:id/merge' => 'kifu_documents#merge', :as => :merge_form_kifu_document
+  post 'kifu_documents/:id/merge' => 'kifu_documents#merge', :as => :merge_kifu_document
   get 'kifu_documents/download/:id.kif' => 'kifu_documents#send_kifu', :as => :download_kifu_document
   get 'kifu_documents/download/:id.orig.kif' => 'kifu_documents#send_original_kifu', :as => :download_original_kifu_document
   get 'kifu_documents/:id/editu' => 'kifu_documents#edit_with_upload', :as => :editu_kifu_document

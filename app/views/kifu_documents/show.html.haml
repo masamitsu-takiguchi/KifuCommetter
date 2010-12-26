@@ -14,7 +14,7 @@
         = @kifu_document.comments.count
         %br
         元の棋譜:
-        = raw link_to @kifu_document.kifu_document.title, @kifu_document.kifu_document if not @kifu_document.kifu_document.blank?
+        = "pending" #raw link_to @kifu_document.kifu_document.title, @kifu_document.kifu_document if not @kifu_document.kifu_document.blank?
       %td{:style => "text-align:right;"}
         - if session[:user].kifu_document_ids.has_key? @kifu_document.id
           = raw "[" + link_to("編集", edit_kifu_document_path(@kifu_document)) + "]"
@@ -78,7 +78,7 @@
       %br
       = link_to 'モドル', kifu_documents_path
     %td
-      = link_to "マージ", merge_kifu_document_path(@kifu_document)
+      = link_to "マージ", merge_form_kifu_document_path(@kifu_document)
 
 %h3 コメント
 %div#comments

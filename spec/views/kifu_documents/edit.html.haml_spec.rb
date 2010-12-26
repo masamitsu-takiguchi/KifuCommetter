@@ -11,7 +11,7 @@ describe "kifu_documents/edit.html.haml" do
     ))
   end
 
-  it "renders the edit kifu_document form" do
+  pending "renders the edit kifu_document form" do
     render
 
     # Run the generator again with the --webrat flag if you want to use webrat matchers

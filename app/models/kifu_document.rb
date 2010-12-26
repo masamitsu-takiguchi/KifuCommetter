@@ -29,10 +29,10 @@ class KifuDocument < ActiveRecord::Base
   end
 
   def all_children_map
-    if self.merged_kifu_documents.blank?
+    if self.children.blank?
       return []
     else
-      self.merged_kifu_documents.map do |kifu_document|
+      self.children.map do |kifu_document|
         [kifu_document] + kifu_document.all_children
       end
     end
@@ -45,15 +45,6 @@ class KifuDocument < ActiveRecord::Base
       self.kifu_content_type = stream.content_type
       self.kifu = stream.read
     end
-  end
-
-  def parent_kifu_document_id= kifu_document_id
-    self.merged_kifu_documents << KifuDocument.find(kifu_document_id)
-  end
-
-  def parent_forms_ids= string
-    array = string.split(',')
-    self.forms = array.map{ |id| Form.find(id) }
   end
 
   def proper_path?

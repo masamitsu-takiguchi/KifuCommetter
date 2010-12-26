@@ -3,6 +3,8 @@ class KifuDocumentsController < ApplicationController
   respond_to :html, :xml, :js
   before_filter :check_user, :only => [:update, :edit, :destroy]
 
+  RevisionPattern = /Rev\.(\d+)/
+
   # GET /kifu_documents/toggle_form_visible
   def toggle_form_visible
     respond_to do |format|
@@ -10,7 +12,45 @@ class KifuDocumentsController < ApplicationController
     end
   end
 
-  # GET /kifu_documents/1/merge
+  # GET  /kifu_documents/1/merge
+  # POST /kifu_documents/1/merge
+  def merge
+    @parent = KifuDocument.find params[:id]
+
+    if request.post? # 新規作成
+      @kifu_document = KifuDocument.new params[:kifu_document]
+      @kifu_document.parent = @parent
+
+      # Revision関連
+      if @parent.title.match RevisionPattern # Rev.? にマッチした場合
+        # 数値アップデート
+        @rev = @parent.title.scan(RevisionPattern).first.first.to_i
+        @parent.title = @parent.title.gsub(RevisionPattern, "Rev.#{@rev+1}")
+      else # 新規マージの場合、子の数を数えて Rev.? を付加する
+        @size = @parent.all_children.size
+        @parent.title = "#{@parent.title} Rev.#{@size+1}"
+      end # Rev 操作終わり
+      
+      # 戦型継承
+      @parent.forms.each do |form|
+        @kifu_document.forms.push form
+      end
+
+      if @kifu_document.save
+        @parent.children << @kifu_document
+        @parent.save!
+        respond_with @kifu_document
+      else # 保存に失敗した
+        respond_with @kifu_document
+      end
+    else                                # GET (フォーム描画)
+      @merge         = true             # フォームアクションのため
+      @kifu_document = KifuDocument.new # フォーム描画のため
+      respond_with @parent
+    end
+  end
+
+=begin
   def merge
     @kifu_document = KifuDocument.new
     @parent_kifu_document = KifuDocument.find params[:id]
@@ -26,6 +66,7 @@ class KifuDocumentsController < ApplicationController
     end
     respond_with @kifu_document
   end
+=end
 
   # GET /kifu_documents/download/1.orig.kif
   def send_original_kifu
@@ -95,7 +136,12 @@ class KifuDocumentsController < ApplicationController
   # GET /kifu_documents
   # GET /kifu_documents.xml
   def index
-    @page = params[:page].to_i or 1
+    if params[:page].to_i.zero?
+      @page = 1
+    else
+      @page = params[:page].to_i
+    end
+
     @kifu_documents = KifuDocument.order(:updated_at.desc).paginate(@page, nil)
     if not @page.zero?
       @morepage = @page + 1 
