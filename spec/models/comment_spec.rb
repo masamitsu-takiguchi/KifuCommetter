@@ -17,7 +17,7 @@ end
 
 describe Comment, ":name が設定されていない場合" do
   before :each do
-    @comment = Comment.new
+    @comment = Comment.new :kifu_document_id => 1
   end
 
   it "自動的に「名無しさん」になること" do
@@ -37,5 +37,9 @@ describe Comment do
 
   it "は特定の棋譜に属していること" do
     @comment.kifu_document.should == @kifu_document1
+  end
+
+  it "が棋譜に属していない場合は保存に失敗すること" do
+    comments(:comment_null).save.should be_false
   end
 end

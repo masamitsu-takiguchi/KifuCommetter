@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 class Comment < ActiveRecord::Base
   belongs_to :kifu_document
-
   validates :message, :presence => true
-
+  validates :kifu_document_id, :presence => true
   before_save :name_check
 
   PerPage = 5

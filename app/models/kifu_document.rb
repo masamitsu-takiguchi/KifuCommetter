@@ -1,9 +1,6 @@
 # -*- coding: utf-8 -*-
 class KifuDocument < ActiveRecord::Base
-  belongs_to :kifu_document
-  has_many :merged_kifu_documents,
-           :class_name => 'KifuDocument',
-           :foreign_key => "kifu_document_id"
+  acts_as_tree :order => :updated_at
   has_and_belongs_to_many :forms
   has_many :comments
 

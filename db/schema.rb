@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101225042733) do
+ActiveRecord::Schema.define(:version => 20101226053822) do
 
   create_table "comments", :force => true do |t|
     t.string   "name"
@@ -33,7 +33,6 @@ ActiveRecord::Schema.define(:version => 20101225042733) do
   end
 
   create_table "kifu_documents", :force => true do |t|
-    t.integer  "kifu_documents_id"
     t.string   "title"
     t.text     "kifu"
     t.string   "uploaded_by"
@@ -42,8 +41,8 @@ ActiveRecord::Schema.define(:version => 20101225042733) do
     t.text     "note"
     t.string   "kifu_content_type"
     t.string   "kifu_original_filename"
-    t.integer  "kifu_document_id"
     t.integer  "forms_id"
+    t.integer  "parent_id"
   end
 
   create_table "sessions", :force => true do |t|

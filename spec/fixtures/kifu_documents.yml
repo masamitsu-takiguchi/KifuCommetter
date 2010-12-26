@@ -1,22 +1,19 @@
 sandmark:
   id: 1
-  kifu_documents_id: 1
   title: "sandmark"
   kifu: "手数"
   uploaded_by: "sandmark"
   note: "note"
   kifu_content_type:
   kifu_original_filename:
-  kifu_document_id:
-  forms_id: 1
+  parent_id:
 asanebou:
   id: 2
-  kifu_documents_id: 1
   title: "asanebou"
   kifu: "手数"
   uploaded_by: "sandmark"
   note: "note"
   kifu_content_type:
   kifu_original_filename:
-  kifu_document_id: 1
   forms_id: 1
+  parent_id: 1

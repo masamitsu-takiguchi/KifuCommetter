@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 require 'spec_helper'
+require 'nkf'
 
 describe KifuDocument, "棋譜が指定されていない場合:" do
   before(:each) do
@@ -36,14 +37,32 @@ describe KifuDocument do
   end
 
   it "は棋譜に属すること" do
-    @asanebou.merged_kifu_documents.first.should == @sandmark
+    @asanebou.parent.should == @sandmark
   end
 
   it "は複数の棋譜を持てること" do
-    @asanebou.should have_at_least(1).merged_kifu_documents
+    @sandmark.should have_at_least(1).children
   end
 
   it "は複数の戦型に属すること" do
     @sandmark.should have_at_least(2).forms
+  end
+
+  it "は複数のコメントを持てること" do
+    @sandmark.should have_at_least(2).comments
+  end
+end
+
+describe KifuDocument, "エンコードがShiftJISなどの場合" do
+  fixtures :kifu_documents
+
+  before :each do
+    @kifu_document = kifu_documents :sandmark
+    @kifu_document.kifu = NKF.nkf("-s", "手数")
+  end
+
+  it "UTF-8にエンコードされること" do
+    @kifu_document.save!
+    NKF.guess(@kifu_document.kifu).should == NKF::UTF8
   end
 end
