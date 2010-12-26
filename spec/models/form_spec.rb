@@ -49,3 +49,17 @@ describe Form do
     @form.kifu_documents.where(:title => "asanebou").first == @kifu2
   end
 end
+
+describe Form, "kifu_document_id= が呼び出された場合" do
+  fixtures :forms, :kifu_documents, :forms_kifu_documents
+
+  before :each do
+    @form = forms :yagura
+    @asanebou = kifu_documents :asanebou
+  end
+
+  it "Form#kifu_documents に棋譜が追加されていること" do
+    @form.kifu_document_id = @asanebou
+    @form.kifu_documents.where(:title => "asanebou").first.should == @asanebou
+  end
+end

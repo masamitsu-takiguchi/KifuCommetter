@@ -2,7 +2,13 @@ yagura:
   id: 1
   name: 矢倉
   kifu_documents_id: 1
+
 nakabisha:
   id: 2
   name: 中飛車
+  kifu_documents_id: 1
+
+rikisen:
+  id: 3
+  name: 力戦
   kifu_documents_id: 1
