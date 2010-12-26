@@ -1,5 +1,41 @@
+# -*- coding: utf-8 -*-
 require 'spec_helper'
 
+describe Comment, ":message が設定されていない場合" do
+  before :each do
+    @comment = Comment.new
+  end
+
+  it "バリデーションに失敗すること" do
+    @comment.should_not be_valid
+  end
+
+  it ":message にエラーが設定されていること" do
+    @comment.should have(1).errors_on(:message)
+  end
+end
+
+describe Comment, ":name が設定されていない場合" do
+  before :each do
+    @comment = Comment.new
+  end
+
+  it "自動的に「名無しさん」になること" do
+    @comment.message = "nil"
+    @comment.save!
+    @comment.name.should == "名無しさん"
+  end
+end
+
 describe Comment do
-  pending "add some examples to (or delete) #{__FILE__}"
+  fixtures :comments, :kifu_documents
+
+  before :each do
+    @comment = comments :comment1
+    @kifu_document1 = kifu_documents :sandmark
+  end
+
+  it "は特定の棋譜に属していること" do
+    @comment.kifu_document.should == @kifu_document1
+  end
 end
