@@ -37,9 +37,14 @@ class KifuDocumentsController < ApplicationController
       end
 
       if @kifu_document.save
+        find_user
+        session[:user].kifu_document_ids[@kifu_document.id] = true
         @parent.children << @kifu_document
         @parent.save!
-        respond_with @kifu_document
+        respond_with @kifu_document do |format|
+          format.html { redirect_to kifu_document_url(@parent),
+            :notice => "棋譜【#{@kifu_document.title}】をマージしました！" }
+        end
       else # 保存に失敗した
         respond_with @kifu_document
       end
@@ -49,24 +54,6 @@ class KifuDocumentsController < ApplicationController
       respond_with @parent
     end
   end
-
-=begin
-  def merge
-    @kifu_document = KifuDocument.new
-    @parent_kifu_document = KifuDocument.find params[:id]
-    @kifu_document.merged_kifu_documents << @parent_kifu_document
-    pattern = /Rev\.(\d+)/
-    if @parent_kifu_document.title.match pattern
-      rev = @parent_kifu_document.title.scan(pattern).first.first
-      @kifu_document.title = @parent_kifu_document.title.gsub(pattern, "Rev.#{rev.to_i + 1}")
-    else
-      @kifu_document.title =
-        @parent_kifu_document.title + " Rev." + 
-        (@parent_kifu_document.merged_kifu_documents.count + 1).to_s # Title Rev.1
-    end
-    respond_with @kifu_document
-  end
-=end
 
   # GET /kifu_documents/download/1.orig.kif
   def send_original_kifu
@@ -242,16 +229,16 @@ class KifuDocumentsController < ApplicationController
 
   private
   def merged_kifu kifu_document
-    if kifu_document.merged_kifu_documents.blank?
+    if kifu_document.all_children.blank?
       kifu_document.kifu
     else
       k1 = Kifu::Kifu.new kifu_document.kifu, kifu_document.uploaded_by
       logger.debug kifu_document.all_children.inspect
-      kifu_document.all_children.each do |merged_kifu_document|
-        k2 = Kifu::Kifu.new merged_kifu_document.kifu, merged_kifu_document.uploaded_by
+      kifu_document.all_children.each do |child|
+        k2 = Kifu::Kifu.new child.kifu, child.uploaded_by
         k1 = k1 & k2
       end 
-      return k1.to_s
+      return k1.to_s_with_names
     end
   end
 end

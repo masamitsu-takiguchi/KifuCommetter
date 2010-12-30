@@ -64,6 +64,16 @@ describe KifuDocumentsController do
     end
   end
 
+  describe "GET download/1.orig.kif:" do
+    pending "文字コードがShiftJISになっていること" do
+    end
+  end
+
+  describe "GET download/1.kif:" do
+    pending "文字コードがShiftJISになっていること" do
+    end
+  end
+
   describe "GET index" do
     it "ページネーション" do
       get :index
