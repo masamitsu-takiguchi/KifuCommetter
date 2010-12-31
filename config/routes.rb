@@ -2,6 +2,8 @@ KifuCommetter::Application.routes.draw do
   resources :forms
   resources :comments
 
+  get "kifu_documents/:id/blogcode" => "kifu_documents#blogcode", :as => :blogcode
+
   get('kifu_documents/toggle_form' => 'kifu_documents#toggle_form_visible',
       :as => :toggle_form_visible)
 

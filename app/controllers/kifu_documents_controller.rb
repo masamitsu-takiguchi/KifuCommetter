@@ -5,6 +5,14 @@ class KifuDocumentsController < ApplicationController
 
   RevisionPattern = /Rev\.(\d+)/
 
+  # GET /kifu_documents/1/blogcode
+  def blogcode
+    @kifu_document = KifuDocument.find params[:id]
+    respond_to do |format|
+      format.js
+    end
+  end
+
   # GET /kifu_documents/toggle_form_visible
   def toggle_form_visible
     respond_to do |format|
@@ -104,14 +112,14 @@ class KifuDocumentsController < ApplicationController
     end
   end
 
-  # GET /kifudocuments/1.kifu
+  # GET /kifu_documents/1.kifu
   def kifu
     @kifu_document = KifuDocument.find params[:id]
     @kifu = @kifu_document.to_kifu_all.to_s_with_names
     render :layout => false
   end
 
-  # GET /kifudocuments/1.kif
+  # GET /kifu_documents/1.kif
   # (Shift_JIS)
   def kif
     @kifu_document = KifuDocument.find params[:id]

@@ -82,6 +82,15 @@
       = link_to 'モドル', kifu_documents_path
     %td
       = link_to "マージ", merge_form_kifu_document_path(@kifu_document)
+      %br
+      = link_to "ブログに貼り付ける", blogcode_path(@kifu_document), :remote => true, :id => "blogcode_inout"
+
+%div#blogcode{:style => "display: none;"}
+  %h3 ブログペースト用コード
+  %p
+    以下のコードをブログに貼り付けると、この棋譜を再生することができます。
+    %p#code{:style => "border: 1px solid green; font-family: 'Courier New', Courier, monospace"}
+      = render "kifu_documents/kifu"
 
 %h3 コメント
 
@@ -118,3 +127,4 @@
 = render 'kifu_documents/autocomplete'
 %script{:type => "text/javascript"}
   $('form_form').visualEffect('blindUp', {duration:0.0});
+  $('code').innerHTML = $('code').innerHTML.escapeHTML();
