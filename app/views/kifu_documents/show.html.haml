@@ -93,7 +93,7 @@
       = render "kifu_documents/kifu"
       %br
       この棋譜へのコメントは「
-      %a{:href => kifu_document_path(@kifu_document)}こちら
+      %a{:href => "http://#{request.raw_host_with_port}#{kifu_document_path(@kifu_document)}"}こちら
       」までどうぞ。
 
 %h3 コメント
