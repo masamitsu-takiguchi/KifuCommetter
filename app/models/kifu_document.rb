@@ -43,7 +43,6 @@ class KifuDocument < ActiveRecord::Base
       s = Kifu::Sashite.new(nil, nil, :merge => true, :tesuu => comment.tesuu,
                             :name => comment.name, :comment => comment.message)
       kifu.merge_comment! s
-      logger.debug kifu.inspect
     end
   end
 

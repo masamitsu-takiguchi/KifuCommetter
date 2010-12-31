@@ -107,7 +107,7 @@ class KifuDocumentsController < ApplicationController
   # GET /kifudocuments/1.kifu
   def kifu
     @kifu_document = KifuDocument.find params[:id]
-    @kifu = @kifu_document.to_kifu_all
+    @kifu = @kifu_document.to_kifu_all.to_s_with_names
     render :layout => false
   end
 
