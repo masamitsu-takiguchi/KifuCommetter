@@ -91,10 +91,9 @@
     以下のコードをブログに貼り付けると、この棋譜を再生することができます。
     %p#code{:style => "border: 1px solid green; font-family: 'Courier New', Courier, monospace"}
       = render "kifu_documents/kifu"
-      %p
-        この棋譜へのコメントは「
-        %a{:href => kifu_document_path(@kifu_document)}こちら
-        」までどうぞ。
+      この棋譜へのコメントは「
+      %a{:href => kifu_document_path(@kifu_document)}こちら
+      」までどうぞ。
 
 %h3 コメント
 
