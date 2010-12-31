@@ -7,6 +7,9 @@ class Comment < ActiveRecord::Base
 
   PerPage = 5
 
+  scope :belongs_to_kifu,
+    where("comments.tesuu is not null")
+
   scope :of_kifu_document,
     lambda { |id| where(:kifu_document_id.eq => id).order(:created_at.desc) }
 

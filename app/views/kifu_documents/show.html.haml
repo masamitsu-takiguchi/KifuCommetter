@@ -84,9 +84,6 @@
       = link_to "マージ", merge_form_kifu_document_path(@kifu_document)
 
 %h3 コメント
-%div#comments
-  = render "kifu_documents/comments"
-= render "kifu_documents/more_comments"
 
 = form_for (@comment) do |f|
   - if @comment.errors.any?
@@ -96,11 +93,27 @@
         - @comment.errors.full_messages.each do |msg|
           %li= msg
   = f.hidden_field :kifu_document_id, :value => @kifu_document.id
-  = f.label :name
-  = f.text_field :name, :size => 5
-  = f.label :message
-  = f.text_field :message
-  = f.submit "コメント"
+  %table
+    %tr
+      %td
+        = f.label :name
+      %td{:colspan => "3"}
+        = f.text_field :name, :size => 5
+        = f.label :tesuu
+        = collection_select :comment, :tesuu, tesuu_collection(@kifu_document), :first, :last
+    %tr
+      %td
+        = f.label :message
+      %td
+        = f.text_field :message, :size => 50
+      %td
+        = f.submit "コメント"
+
+%hr{:style => "margin-top: 10px; margin-bottom: 10px;"}
+
+%div#comments
+  = render "kifu_documents/comments"
+= render "kifu_documents/more_comments"
 
 = render 'kifu_documents/autocomplete'
 %script{:type => "text/javascript"}

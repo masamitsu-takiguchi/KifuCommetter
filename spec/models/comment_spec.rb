@@ -42,4 +42,12 @@ describe Comment do
   it "が棋譜に属していない場合は保存に失敗すること" do
     comments(:comment_null).save.should be_false
   end
+
+  describe "Scopes: " do
+    describe "belongs_to_kifu" do
+      it "棋譜にコメントしてあるもののみ持ってくること" do
+        Comment.belongs_to_kifu.count.should eq(1)
+      end
+    end
+  end
 end

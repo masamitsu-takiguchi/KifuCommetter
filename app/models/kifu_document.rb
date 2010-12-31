@@ -24,6 +24,29 @@ class KifuDocument < ActiveRecord::Base
       limit(limit).offset(offset)
     }
 
+  def to_kifu
+    Kifu::Kifu.new self.kifu, self.uploaded_by
+  end
+
+  def to_kifu_all
+    kifu = Kifu::Kifu.new self.kifu, self.uploaded_by
+    all_children.each do |child|
+      kifu = kifu & Kifu::Kifu.new(child.kifu, child.uploaded_by)
+      child.merge_comments! kifu
+    end
+    merge_comments! kifu
+    kifu
+  end
+
+  def merge_comments! kifu
+    self.comments.belongs_to_kifu.each do |comment|
+      s = Kifu::Sashite.new(nil, nil, :merge => true, :tesuu => comment.tesuu,
+                            :name => comment.name, :comment => comment.message)
+      kifu.merge_comment! s
+      logger.debug kifu.inspect
+    end
+  end
+
   def all_children
     self.all_children_map.flatten
   end

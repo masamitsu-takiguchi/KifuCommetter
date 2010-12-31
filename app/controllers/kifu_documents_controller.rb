@@ -62,7 +62,7 @@ class KifuDocumentsController < ApplicationController
 
   # GET /kifu_documents/download/1.kif
   def send_kifu
-    send_data NKF.nkf("-s", merged_kifu(KifuDocument.find(params[:id])))
+    send_data NKF.nkf("-s", KifuDocument.find(params[:id]).to_kifu_all.to_s_with_names)
   end
 
   # GET|POST /kifu_document/newp
@@ -107,7 +107,7 @@ class KifuDocumentsController < ApplicationController
   # GET /kifudocuments/1.kifu
   def kifu
     @kifu_document = KifuDocument.find params[:id]
-    @kifu = merged_kifu(@kifu_document)
+    @kifu = @kifu_document.to_kifu_all
     render :layout => false
   end
 
@@ -115,7 +115,7 @@ class KifuDocumentsController < ApplicationController
   # (Shift_JIS)
   def kif
     @kifu_document = KifuDocument.find params[:id]
-    @kif = NKF.nkf("-s", merged_kifu(@kifu_document))
+    @kif = NKF.nkf("-s", @kifu_document.to_kifu_all.to_s_with_names)
     
     render :layout => false
   end
@@ -143,6 +143,7 @@ class KifuDocumentsController < ApplicationController
   # GET /kifu_documents/1.xml
   def show
     @kifu_document = KifuDocument.find(params[:id])
+    @kifu = Kifu::Kifu.new @kifu_document.kifu
     @form = Form.new
     @comment = Comment.new
 
@@ -228,17 +229,21 @@ class KifuDocumentsController < ApplicationController
   end
 
   private
-  def merged_kifu kifu_document
-    if kifu_document.all_children.blank?
-      kifu_document.kifu
-    else
-      k1 = Kifu::Kifu.new kifu_document.kifu, kifu_document.uploaded_by
-      logger.debug kifu_document.all_children.inspect
-      kifu_document.all_children.each do |child|
-        k2 = Kifu::Kifu.new child.kifu, child.uploaded_by
-        k1 = k1 & k2
-      end 
-      return k1.to_s_with_names
-    end
-  end
+#  def merged_kifu kifu_document
+#    if kifu_document.all_children.blank?
+#      if kifu_document.comments.blank?
+#        kifu_document.kifu
+#      else
+#        merge_comments(kifu_document).to_s_with_names
+#      end
+#    else
+#      k1 = Kifu::Kifu.new kifu_document.kifu, kifu_document.uploaded_by
+#      logger.debug kifu_document.all_children.inspect
+#      kifu_document.all_children.each do |child|
+#        k2 = Kifu::Kifu.new child.kifu, child.uploaded_by
+#        k1 = k1 & k2
+#      end
+#      return merge_comments(k1, .to_s_with_names
+#    end
+#  end
 end

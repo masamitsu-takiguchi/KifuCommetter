@@ -180,6 +180,7 @@ ja:
       comment:
         name: "名前"
         message: "メッセージ"
+        tesuu: "手数"
       form:
         name: "戦型名"
       kifu_document:
