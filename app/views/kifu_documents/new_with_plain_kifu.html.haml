@@ -38,6 +38,6 @@
       %tr
         %td.form{"colspan" => "2"}= f.text_area :note, :rows => 10
       %tr
-        %td.form{"colspan" => "2"}= f.submit
+        %td.form{"colspan" => "2"}= f.submit nil, :confirm => "この内容でよろしいですか？"
 
 = link_to 'モドル', kifu_documents_path
