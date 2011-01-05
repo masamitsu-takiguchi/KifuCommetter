@@ -4,18 +4,17 @@
       %tr
         %td
           = l comment.created_at
-          \|
+          - if session[:user].comment_ids[comment.id]
+            - session[:request_uri] = request.fullpath
+            \|
+            = raw "[" + link_to("削除", comment, :method => :delete, :confirm => "削除しますか？") + "]"
       %tr
         %td
           %font{:color => "green"}= comment.name
-          \|
+          <
           - if comment.tesuu
             %font{:color => "lightseagreen"}= (comment.tesuu).to_s  + "手目(" + @kifu[comment.tesuu-1].te + ")"
-            \|
+            >
           %font{:color => "chocolate"}= comment.message
-        %td
-          - if session[:user].comment_ids[comment.id]
-            - session[:request_uri] = request.fullpath
-            = raw "[" + link_to("削除", comment, :method => :delete, :confirm => "削除しますか？") + "]"
     %hr
     %br
