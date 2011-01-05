@@ -10,6 +10,7 @@ KifuCommetter::Application.routes.draw do
   get 'forms_autocomplete(?query=:query)' =>
     'forms#autocomplete', :as => :forms_autocomplete
 
+  get 'documents/Commits.html' => 'documents#commits', :as => :documents_commits
   get 'documents' => 'documents#readme', :as => :documents
   get 'documents/ReadMe.html' => 'documents#readme', :as => :documents_readme
   get 'documents/PoliciesAndThanks.html' => 'documents#policies_and_thanks', :as => :documents_policies_and_thanks

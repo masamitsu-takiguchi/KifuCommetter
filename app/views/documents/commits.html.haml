@@ -1,0 +1,11 @@
+%h2
+  更新履歴 （
+  %a{:target => "_blank", :href => "http://github.com/sandmark/KifuCommetter"} GitHub
+  のコミットログ）
+
+- @commits.each do |commit|
+  %font{:color => "green"}
+    = DateTime.strptime(commit["committed_date"]).advance(:hours => 8+9).to_time.strftime("%Y/%m/%d %H:%M")
+  %br
+  %font{:color => "chocolate"}= commit["message"]
+  %hr{:style => "border: 1px dotted lightseagreen; margin-bottom: 20px;"}

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class DocumentsController < ApplicationController
   # GET /documents/ReadMe.html
   def readme
@@ -17,5 +18,15 @@ class DocumentsController < ApplicationController
 
   # GET /document/ToDo.html
   def todo
+  end
+
+  # GET /document/Commits.html
+  def commits
+    url = URI("http://github.com/api/v2/json/commits/list/" + 
+              "sandmark/KifuCommetter/master") # GitHub の API
+    http = Net::HTTP.new url.host
+    response = http.get url.request_uri
+    hash = ActiveSupport::JSON.decode response.body
+    @commits = hash["commits"]
   end
 end
