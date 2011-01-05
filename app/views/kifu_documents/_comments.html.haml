@@ -4,14 +4,15 @@
       %tr
         %td
           = l comment.created_at
-          \| 
-          = comment.name
+          \|
+      %tr
+        %td
+          %font{:color => "green"}= comment.name
           \|
           - if comment.tesuu
-            = (comment.tesuu).to_s  + "手目"
-            = "(" + @kifu[comment.tesuu-1].te + ")"
+            %font{:color => "lightseagreen"}= (comment.tesuu).to_s  + "手目(" + @kifu[comment.tesuu-1].te + ")"
             \|
-          = comment.message
+          %font{:color => "chocolate"}= comment.message
         %td
           - if session[:user].comment_ids[comment.id]
             - session[:request_uri] = request.fullpath
