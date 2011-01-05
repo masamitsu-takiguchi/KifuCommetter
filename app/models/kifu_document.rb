@@ -40,7 +40,8 @@ class KifuDocument < ActiveRecord::Base
 
   def merge_comments! kifu
     self.comments.belongs_to_kifu.each do |comment|
-      s = Kifu::Sashite.new(nil, nil, :merge => true, :tesuu => comment.tesuu,
+      s = Kifu::Sashite.new(nil, nil, :merge => true,
+                            :tesuu => comment.tesuu,
                             :name => comment.name, :comment => comment.message)
       kifu.merge_comment! s
     end
