@@ -20,12 +20,12 @@ class FormsController < ApplicationController
 
   def create
     @form = Form.new params[:form]
+    @kifu_document = KifuDocument.find params[:form][:kifu_document_id]
+    @form.kifu_documents << @kifu_document
     if @form.save
-      @comments = Comment.of_kifu_document(@form.kifu_document_id)
+      @comments = @kifu_document.comments
       session[:user].form_ids[@form.id] = true
-      respond_with @forms do |format|
-        format.html { redirect_to kifu_document_url(params[:form][:kifu_document_id]), :notice => "戦型【#{@form.name}】を追加しました。" }
-      end
+      redirect_to kifu_document_url(@kifu_document), :notice => "戦型【#{@form.name}】を追加しました。"
     else
       @kifu_document = KifuDocument.find(params[:form][:kifu_document_id])
       @comment = Comment.new
