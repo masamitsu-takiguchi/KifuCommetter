@@ -37,6 +37,9 @@
   - else
     - @kifu_document.forms.each do |form|
       = raw "【" + link_to(form.name, form_path(form)) + "】"
+      - if session[:user].form_ids[form.id]
+        - session[:url] = request.request_uri
+        = raw "(" + link_to("取消", remove_form_path(form, @kifu_document), :method => :delete) + ")"
   = link_to "追加", toggle_form_visible_path, :remote => true, :id => "form_inout"
 
   %div#form_form

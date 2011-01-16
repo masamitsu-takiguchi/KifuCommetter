@@ -13,6 +13,21 @@ class KifuDocument < ActiveRecord::Base
 
   PatternOfDistinctKifuOrOtherData = /手数/
   PerPage = 3
+  
+  scope :search, lambda {|query|
+    relation = includes(:forms).includes(:comments).group("kifu_documents.id")
+    query.split(/[　\s]/).each do |string|
+      relation = relation.
+        where({:title.like       => "%#{string}%"} |
+              {:uploaded_by.like => "%#{string}%"} |
+              {:note.like        => "%#{string}%"} |
+              {:forms            => { :name.like    => "%#{string}%"}} |
+              {:comments         => [{:name.like    => "%#{string}%"} |
+                                     {:message.like => "%#{string}%"}]}
+                                    )
+    end
+    relation
+  }
 
   scope :paginate,
     lambda { |page, per_page|

@@ -4,6 +4,24 @@ class KifuDocumentsController < ApplicationController
   before_filter :check_user, :only => [:update, :edit, :destroy]
 
   RevisionPattern = /Rev\.(\d+)/
+  
+  def search
+    if params[:page].to_i.zero?
+      @page = 1
+    else
+      @page = params[:page].to_i
+    end
+
+    @kifu_documents = KifuDocument.search(params[:query]).order(:updated_at.desc).paginate(@page,nil)
+    flash.now[:notice] = "#{@kifu_documents.length}件ヒットしました！"
+    if not @page.zero?
+      @morepage = @page + 1
+    else
+      @morepage = 2
+    end
+    @morepage = nil if KifuDocument.search(params[:query]).order(:updated_at.desc).paginate(@page+1, nil).length.zero?
+    render :action => :index
+  end
 
   # GET /kifu_documents/1/blogcode
   def blogcode

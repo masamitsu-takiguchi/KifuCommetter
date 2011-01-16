@@ -23,7 +23,7 @@
             %font{:color => "red"} 未指定
           - else
             - kifu_document.forms.each do |form|
-              = "【" + form.name + "】"
+              = raw "【" + link_to(form.name, :action => :search, :controller => :kifu_documents, :query => form.name) + "】"
           %br
           マージされた回数:
           = kifu_document.children.count

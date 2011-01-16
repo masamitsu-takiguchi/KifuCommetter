@@ -2,4 +2,4 @@
 
 %ul
   - @forms.each do |form|
-    %li= form.name
+    %li= link_to form.name, :controller => :kifu_documents, :action => :search, :query => form.name
