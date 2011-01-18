@@ -36,7 +36,7 @@
     %font{:color => "red"} 未指定
   - else
     - @kifu_document.forms.each do |form|
-      = raw "【" + link_to(form.name, form_path(form)) + "】"
+      = raw "【" + link_to(form.name, :controller => :kifu_documents, :action => :search, :query => form.name) + "】"
       - if session[:user].form_ids[form.id]
         - session[:url] = request.request_uri
         = raw "(" + link_to("取消", remove_form_path(form, @kifu_document), :method => :delete) + ")"
